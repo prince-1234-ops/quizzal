@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quizzal - Quiz Categories</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#050816,#111827,#1e3a8a);
+    color:white;
+    min-height:100vh;
+}
+
+/* NAVBAR */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+    backdrop-filter:blur(15px);
+    background:rgba(255,255,255,.05);
+    border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.logo{
+    font-size:2.2rem;
+    font-weight:700;
+    color:#00eaff;
+    letter-spacing:1px;
+    transition:.4s;
+}
+
+.logo:hover{
+    transform:scale(1.08);
+    text-shadow:0 0 20px #00eaff;
+}
+nav{
+    display:flex;
+}
+
+
+.nav-links{
+
+    list-style:none;
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+
+.nav-links li a{
+
+    text-decoration:none;
+
+    color:white;
+
+    padding:10px 22px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.08);
+
+    transition:.3s;
+
+}
+
+
+.nav-links li a:hover,
+.nav-links li a.active{
+
+    background:#00eaff;
+
+    color:black;
+
+    box-shadow:0 0 20px #00eaff;
+
+}
+
+/* HERO */
+
+.hero{
+    padding-top:140px;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:3.5rem;
+    color:#00eaff;
+}
+
+.hero p{
+    color:#cbd5e1;
+    margin:20px auto;
+    max-width:700px;
+    font-size:1.1rem;
+}
+
+
+/* GRID */
+
+.quiz-container{
+
+    width:90%;
+    max-width:1300px;
+    margin:60px auto;
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:35px;
+}
+
+/* CARD */
+
+.quiz-card{
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:25px;
+
+    padding:35px;
+
+    transition:.4s;
+
+    text-align:center;
+}
+
+.quiz-card:hover{
+
+    transform:translateY(-15px);
+
+    box-shadow:0 0 30px #00eaff;
+
+    border-color:#00eaff;
+}
+
+.quiz-card i{
+
+    font-size:4rem;
+
+    color:#00eaff;
+
+    margin-bottom:20px;
+}
+
+.quiz-card h3{
+
+    font-size:1.6rem;
+
+    margin-bottom:15px;
+}
+
+.quiz-card p{
+
+    color:#d1d5db;
+
+    margin-bottom:20px;
+}
+
+.level{
+
+    display:inline-block;
+
+    padding:6px 15px;
+
+    border-radius:30px;
+
+    background:#00eaff;
+
+    color:black;
+
+    font-weight:600;
+
+    margin-bottom:20px;
+}
+
+.btn{
+
+    display:inline-block;
+
+    padding:12px 28px;
+
+    border-radius:40px;
+
+    background:#00eaff;
+
+    color:black;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.btn:hover{
+
+    background:rgb(65, 167, 244);
+}
+
+/* SEARCH BOX */
+
+.search-box{
+
+    width:450px;
+    max-width:90%;
+    margin:30px auto;
+
+    display:flex;
+
+    background:white;
+
+    border-radius:50px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.3);
+
+}
+
+
+.search-box input{
+
+    flex:1;
+
+    padding:15px 20px;
+
+    border:none;
+
+    outline:none;
+
+    font-size:16px;
+
+}
+
+
+.search-box button{
+
+    width:70px;
+
+    border:none;
+
+    background:#00eaff;
+
+    color:black;
+
+    cursor:pointer;
+
+    font-size:20px;
+
+    transition:.3s;
+
+}
+
+
+.search-box button:hover{
+
+    background:white;
+
+}
+
+
+
+
+/* FOOTER */
+
+footer{
+
+    text-align:center;
+
+    padding:30px;
+
+    color:#94a3b8;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:2.5rem;
+}
+
+nav{
+display:none;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        🎓 Quizzal
+    </div>
+
+
+    <nav>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="login.html">Home</a>
+            </li>
+
+            <li>
+            </li>
+
+            <li>
+                <a href="quiz.html" class="active">Quiz</a>
+            </li>
+
+            <li>
+                <a href="abaut.html">About</a>
+            </li>
+
+            <li>
+                <a href="contact.html">Contact</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+<section class="hero">
+
+<h1>Choose Your Quiz</h1>
+
+<p>
+Improve your knowledge, challenge yourself, and become a Quiz Master by selecting your favorite subject.
+</p>
+
+
+<!-- SEARCH BOX -->
+
+<div class="search-box">
+
+    <input 
+        id="searchInput" 
+        placeholder="Search a subject..."
+    >
+
+    <button onclick="searchSubject()">
+        <i class="fas fa-search"></i>
+    </button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<div class="quiz-container">
+
+    <div class="quiz-card">
+        <i class="fas fa-flask"></i>
+        <h3>Chemistry</h3>
+        <p>Learn atoms, elements, reactions, and chemical formulas.</p>
+        <div class="level">Medium</div>
+        <br>
+        <a href="chememistry.html" class="btn">Start Quiz</a>
+    </div>
+
+
+    <div class="quiz-card">
+        <i class="fas fa-square-root-alt"></i>
+        <h3>Mathematics</h3>
+        <p>Challenge yourself with algebra, geometry, and calculations.</p>
+        <div class="level">Hard</div>
+        <br>
+        <a href="mathmatics.html" class="btn">Start Quiz</a>
+    </div>
+
+
+    <div class="quiz-card">
+        <i class="fas fa-atom"></i>
+        <h3>Physics</h3>
+        <p>Explore forces, motion, energy, and the laws of nature.</p>
+        <div class="level">Medium</div>
+        <br>
+        <a href="physics.html" class="btn">Start Quiz</a>
+    </div>
+
+
+    <div class="quiz-card">
+        <i class="fas fa-earth-africa"></i>
+        <h3>Geography</h3>
+        <p>Discover countries, capitals, maps, and the environment.</p>
+        <div class="level">Easy</div>
+        <br>
+        <a href="geograpy.html" class="btn">Start Quiz</a>
+    </div>
+
+
+    <div class="quiz-card">
+        <i class="fas fa-landmark"></i>
+        <h3>History</h3>
+        <p>Test your knowledge about civilizations and important events.</p>
+        <div class="level">Medium</div>
+        <br>
+        <a href="history.html" class="btn">Start Quiz</a>
+    </div>
+
+
+    <div class="quiz-card">
+        <i class="fas fa-code"></i>
+        <h3>Computer Science</h3>
+        <p>Learn programming, technology, and digital concepts.</p>
+        <div class="level">Hard</div>
+        <br>
+        <a href="computer.html" class="btn">Start Quiz</a>
+    </div>
+
+
+    <div class="quiz-card">
+        <i class="fas fa-dna"></i>
+        <h3>Biology</h3>
+        <p>Explore living organisms, cells, genetics, and health.</p>
+        <div class="level">Medium</div>
+        <br>
+        <a href="biology.html" class="btn">Start Quiz</a>
+    </div>
+
+
+    <div class="quiz-card">
+        <i class="fas fa-language"></i>
+        <h3>English</h3>
+        <p>Improve grammar, vocabulary, and communication skills.</p>
+        <div class="level">Easy</div>
+        <br>
+        <a href="english.html" class="btn">Start Quiz</a>
+    </div>
+
+
+</div>
+
+</div>
+
+<footer>
+
+© 2026 Quizzal | Learn • Play • Succeed
+
+</footer>
+<script>
+
+function searchSubject(){
+
+    let subject = document
+    .getElementById("searchInput")
+    .value
+    .toLowerCase()
+    .trim();
+
+
+    switch(subject){
+
+        case "math":
+        case "mathematics":
+            window.location.href="mathematics.html";
+            break;
+
+
+        case "chem":
+        case "chemistry":
+            window.location.href="chemistry.html";
+            break;
+
+
+        case "physics":
+        case "phy":
+            window.location.href="physics.html";
+            break;
+
+
+        case "geography":
+        case "geo":
+            window.location.href="geograpy.html";
+            break;
+
+
+        case "biology":
+        case "bio":
+            window.location.href="biology.html";
+            break;
+
+
+        case "english":
+            window.location.href="english.html";
+            break;
+
+
+        case "history":
+            window.location.href="history.html";
+            break;
+
+
+        case "computer":
+        case "ict":
+            window.location.href="computer.html";
+            break;
+
+
+        default:
+            alert("Subject not found!");
+
+    }
+
+}
+
+
+// Press Enter to search
+
+document.getElementById("searchInput")
+.addEventListener("keydown",function(event){
+
+    if(event.key==="Enter"){
+        searchSubject();
+    }
+
+});
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact Us | Quizzal</title>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+<!-- EmailJS Library -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+body{
+
+    font-family:"Poppins",sans-serif;
+
+    background:linear-gradient(135deg,#050816,#1e3a8a);
+
+    min-height:100vh;
+
+    color:white;
+
+}
+
+
+
+/* NAVBAR */
+
+.navbar{
+
+    height:80px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 10%;
+
+    background:rgba(255,255,255,.1);
+
+    backdrop-filter:blur(15px);
+
+}
+
+
+.logo{
+
+    font-size:28px;
+
+    font-weight:700;
+
+}
+
+
+.nav-links{
+
+    display:flex;
+
+    gap:30px;
+
+    list-style:none;
+
+}
+
+
+.nav-links a{
+
+    color:white;
+
+    text-decoration:none;
+
+}
+
+
+.nav-links a:hover,
+.active{
+
+    color:#38bdf8;
+
+}
+
+
+
+/* CONTACT */
+
+.contact{
+
+    min-height:calc(100vh - 80px);
+
+    display:flex;
+
+    align-items:center;
+
+    padding:70px 10%;
+
+}
+
+
+
+.contact-container{
+
+
+    width:100%;
+
+    display:flex;
+
+    gap:50px;
+
+
+    background:rgba(255,255,255,.12);
+
+    padding:50px;
+
+    border-radius:30px;
+
+    backdrop-filter:blur(15px);
+
+}
+
+
+
+
+.contact-info{
+
+    flex:1;
+
+}
+
+
+
+.contact-info h1{
+
+    font-size:45px;
+
+    margin-bottom:20px;
+
+}
+
+
+.contact-info span{
+
+    color:#38bdf8;
+
+}
+
+
+
+.contact-info p{
+
+    color:#e2e8f0;
+
+    line-height:1.8;
+
+}
+
+
+
+.info-box{
+
+    margin-top:25px;
+
+}
+
+
+.info-box h3{
+
+    color:#38bdf8;
+
+}
+
+
+
+/* FORM */
+
+
+.contact-form{
+
+    flex:1;
+
+}
+
+
+
+form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+
+
+input,
+textarea{
+
+    padding:15px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:15px;
+
+    background:rgba(255,255,255,.15);
+
+    color:white;
+
+    font-size:16px;
+
+}
+
+
+textarea{
+
+    height:150px;
+
+    resize:none;
+
+}
+
+
+
+input::placeholder,
+textarea::placeholder{
+
+    color:#ddd;
+
+}
+
+
+
+button{
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:#38bdf8;
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
+
+
+
+button:hover{
+
+    background:#0284c7;
+
+}
+
+
+
+#success{
+
+    text-align:center;
+
+    color:#4ade80;
+
+    font-weight:600;
+
+}
+
+
+
+
+@media(max-width:900px){
+
+.contact-container{
+
+    flex-direction:column;
+
+}
+
+
+.nav-links{
+
+    display:none;
+
+}
+
+}
+
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+
+<nav class="navbar">
+
+
+<div class="logo">
+📘 Quizzal
+</div>
+
+
+
+<ul class="nav-links">
+
+<li><a href="login.html">Home</a></li>
+
+<li><a href="start.html">Quizzes</a></li>
+
+<li><a href="abaut.html">About</a></li>
+
+<li><a class="active" href="contact.html">Contact</a></li>
+
+</ul>
+
+
+</nav>
+
+
+
+
+
+<section class="contact">
+
+
+<div class="contact-container">
+
+
+
+<div class="contact-info">
+
+
+<h1>
+Contact <span>Us</span>
+</h1>
+
+
+<p>
+Have questions, suggestions or feedback?
+Send us a message and we will reply.
+</p>
+
+
+
+<div class="info-box">
+
+<h3>📧 Email</h3>
+
+<p>your-email@gmail.com</p>
+
+</div>
+
+
+
+<div class="info-box">
+
+<h3>📍 Location</h3>
+
+<p>Kigali, Rwanda</p>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+<div class="contact-form">
+
+
+<form id="contactForm">
+
+
+<input 
+type="text"
+id="name"
+placeholder="Your Name"
+required>
+
+
+
+<input
+type="email"
+id="email"
+placeholder="Your Email"
+required>
+
+
+
+<input
+type="text"
+id="subject"
+placeholder="Subject"
+required>
+
+
+
+<textarea
+id="message"
+placeholder="Your Message"
+required></textarea>
+
+
+
+<button type="submit">
+Send Message 🚀
+</button>
+
+
+
+<p id="success"></p>
+
+
+</form>
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<script>
+
+
+// Initialize EmailJS
+
+emailjs.init("YOUR_PUBLIC_KEY");
+
+
+
+
+
+document.getElementById("contactForm")
+.addEventListener("submit",function(e){
+
+
+e.preventDefault();
+
+
+
+let data = {
+
+
+from_name:
+document.getElementById("name").value,
+
+
+from_email:
+document.getElementById("email").value,
+
+
+subject:
+document.getElementById("subject").value,
+
+
+message:
+document.getElementById("message").value
+
+
+};
+
+
+
+
+
+emailjs.send(
+
+"YOUR_SERVICE_ID",
+
+"YOUR_TEMPLATE_ID",
+
+data
+
+)
+
+
+
+.then(()=>{
+
+
+document.getElementById("success").innerHTML =
+"✅ Your message has been sent successfully!";
+
+
+document.getElementById("contactForm").reset();
+
+
+})
+
+
+
+.catch(()=>{
+
+
+document.getElementById("success").innerHTML =
+"❌ Message failed. Try again.";
+
+
+});
+
+
+
+});
+
+
+
+</script>
+
+
+
+</body>
+
+</html>
