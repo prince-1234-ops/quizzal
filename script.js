@@ -53,8 +53,6 @@ typeEffect();
 const images = [
     
     "images/OIP 9.jpg",
-    "images/OIP 8.jpg",
-    "images/OIP 10.jpg",
     "images/pij.png",
      "images/pic4.jpg",
 ];
