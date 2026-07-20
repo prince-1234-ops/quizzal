@@ -51,7 +51,12 @@ typeEffect();
 // ==============================
 
 const images = [
- 
+    
+    "images/OIP 9.jpg",
+    "images/pij.png",
+     "images/pic4.jpg",
+];
+
 let currentImage = 0;
 
 const slider = document.getElementById("slider");
