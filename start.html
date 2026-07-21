@@ -388,7 +388,7 @@ Improve your knowledge, challenge yourself, and become a Quiz Master by selectin
         <p>Learn atoms, elements, reactions, and chemical formulas.</p>
         <div class="level">Medium</div>
         <br>
-        <a href="chememistry.html" class="btn">Start Quiz</a>
+        <a href="chemistry.html" class="btn">Start Quiz</a>
     </div>
 
 
@@ -398,7 +398,7 @@ Improve your knowledge, challenge yourself, and become a Quiz Master by selectin
         <p>Challenge yourself with algebra, geometry, and calculations.</p>
         <div class="level">Hard</div>
         <br>
-        <a href="mathmatics.html" class="btn">Start Quiz</a>
+        <a href="mathematics.html" class="btn">Start Quiz</a>
     </div>
 
 
@@ -418,7 +418,7 @@ Improve your knowledge, challenge yourself, and become a Quiz Master by selectin
         <p>Discover countries, capitals, maps, and the environment.</p>
         <div class="level">Easy</div>
         <br>
-        <a href="geograpy.html" class="btn">Start Quiz</a>
+        <a href="geography.html" class="btn">Start Quiz</a>
     </div>
 
 
@@ -472,84 +472,73 @@ Improve your knowledge, challenge yourself, and become a Quiz Master by selectin
 
 </footer>
 <script>
-
-function searchSubject(){
+function searchSubject() {
 
     let subject = document
-    .getElementById("searchInput")
-    .value
-    .toLowerCase()
-    .trim();
+        .getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
 
-
-    switch(subject){
+    switch (subject) {
 
         case "math":
         case "mathematics":
-            window.location.href="mathematics.html";
+            window.location.href = "mathematics.html";
             break;
-
 
         case "chem":
         case "chemistry":
-            window.location.href="chemistry.html";
+            window.location.href = "chemistry.html";
             break;
-
 
         case "physics":
         case "phy":
-            window.location.href="physics.html";
+            window.location.href = "physics.html";
             break;
-
 
         case "geography":
         case "geo":
-            window.location.href="geograpy.html";
+            window.location.href = "geography.html";
             break;
-
 
         case "biology":
         case "bio":
-            window.location.href="biology.html";
+            window.location.href = "biology.html";
             break;
-
 
         case "english":
-            window.location.href="english.html";
+            window.location.href = "english.html";
             break;
-
 
         case "history":
-            window.location.href="history.html";
+            window.location.href = "history.html";
             break;
-
 
         case "computer":
+        case "computer science":
         case "ict":
-            window.location.href="computer.html";
+            window.location.href = "computer.html";
             break;
 
-
         default:
-            alert("Subject not found!");
-
+            alert("❌ Subject not found!");
     }
-
 }
 
-
-// Press Enter to search
-
-document.getElementById("searchInput")
-.addEventListener("keydown",function(event){
-
-    if(event.key==="Enter"){
+// Allow Enter key to search
+document.getElementById("searchInput").addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
         searchSubject();
     }
-
 });
-
-
 </script>
+</body>
+</html>
+
+
+        
+
+
 </body>
 </html>
