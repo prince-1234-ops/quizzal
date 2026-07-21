@@ -6,6 +6,64 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+/* Header */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+    backdrop-filter:blur(15px);
+    background:rgba(255,255,255,.05);
+    border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.logo{
+    font-size:2.2rem;
+    font-weight:700;
+    color:#00eaff;
+    letter-spacing:1px;
+    transition:.4s;
+    text-decoration: none;
+}
+
+.logo:hover{
+    transform:scale(1.08);
+    text-shadow:0 0 20px #00eaff;
+}
+
+nav{
+    display:flex;
+    gap:15px;
+}
+
+nav a{
+    color:#fff;
+    font-size:1rem;
+    padding:12px 20px;
+    border-radius:50px;
+    transition:.4s;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.08);
+    text-decoration: none;
+}
+
+nav a:hover,
+nav a.active{
+    background:#00eaff;
+    color:#000;
+    box-shadow:0 0 20px #00eaff;
+}
+.nav-links a {
+    text-decoration: none;
+    color: white;
+}
+
 section {
     display: flex;
     justify-content: center;
