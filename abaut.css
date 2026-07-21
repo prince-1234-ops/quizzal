@@ -8,95 +8,77 @@ box-sizing:border-box;
 
 
 body{
+display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
 
-font-family:"Poppins",sans-serif;
+    background-image: url("images/ooo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
-background:
-linear-gradient(135deg,#050816,#1e3a8a);
-
-min-height:100vh;
-
+    animation: animateBg 8s linear infinite;
 }
 
+/* Header */
 
-
-/* NAVBAR */
-
-
-.navbar{
-
-height:80px;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-padding:0 10%;
-
-background:rgba(255,255,255,0.1);
-
-backdrop-filter:blur(15px);
-
-position:sticky;
-
-top:0;
-
-z-index:100;
-
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+    backdrop-filter:blur(15px);
+    background:rgba(255,255,255,.05);
+    border-bottom:1px solid rgba(255,255,255,.1);
 }
-
-
 
 .logo{
-
-font-size:28px;
-
-font-weight:700;
-
-color:white;
-
+    font-size:2.2rem;
+    font-weight:700;
+    color:#00eaff;
+    letter-spacing:1px;
+    transition:.4s;
+    text-decoration: none;
 }
 
-
-
-.nav-links{
-
-display:flex;
-
-gap:30px;
-
-list-style:none;
-
+.logo:hover{
+    transform:scale(1.08);
+    text-shadow:0 0 20px #00eaff;
 }
 
-
-
-.nav-links a{
-
-color:white;
-
-text-decoration:none;
-
-font-size:16px;
-
-font-weight:500;
-
-transition:.3s;
-
+nav{
+    display:flex;
+    gap:15px;
 }
 
-
-
-.nav-links a:hover,
-.nav-links .active{
-
-color:#38bdf8;
-
+nav a{
+    color:#fff;
+    font-size:1rem;
+    padding:12px 20px;
+    border-radius:50px;
+    transition:.4s;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.08);
+    text-decoration: none;
 }
 
-
+nav a:hover,
+nav a.active{
+    background:#00eaff;
+    color:#000;
+    box-shadow:0 0 20px #00eaff;
+}
+.nav-links a {
+    text-decoration: none;
+    color: white;
+}
 
 
 /* ABOUT */
@@ -194,6 +176,9 @@ transition:.5s;
 .about-image img:hover{
 
 transform:scale(1.05);
+box-shadow:
+
+0 0 30px rgba(164, 248, 254, 0.6);
 
 }
 
@@ -224,7 +209,7 @@ margin-bottom:25px;
 
 .about-content h1 span{
 
-color:#38bdf8;
+color:#131414;
 
 }
 
