@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quizzal Dashboard</title>
+
+    <!-- Website Icon -->
+    <link rel="icon" type="image/png" href="images/9.png">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#050816">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+    <!-- Dashboard CSS -->
+    <link rel="stylesheet" href="dashboard.css">
+
+</head>
+
+
+<body>
+
+
+<div class="animated-bg">
+
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+
+</div>
+
+
+
+<aside class="sidebar">
+
+
+<div class="logo">
+
+<i class="fa-solid fa-graduation-cap"></i>
+
+<span>Quizzal</span>
+
+</div>
+
+
+
+<ul class="menu">
+   <li>
+
+<a href="login.html">
+<i class="fa-solid fa-house"></i>
+home
+</a>
+
+</li>
+
+
+
+
+
+<li>
+
+<a href="start.html">
+<i class="fa-solid fa-book"></i>
+Subjects
+</a>
+
+</li>
+
+<li class="active">
+
+<a href="#">
+<i class="fa-solid fa-chart-line"></i>
+Dashboard
+</a>
+
+</li>
+
+<li>
+
+<a href="#">
+<i class="fa-solid fa-trophy"></i>
+Leaderboard
+</a>
+
+</li>
+
+
+
+<li>
+
+<a href="#">
+<i class="fa-solid fa-medal"></i>
+Achievements
+</a>
+
+</li>
+
+
+
+<li>
+
+<a href="profile.html">
+<i class="fa-solid fa-user"></i>
+Profile
+</a>
+
+</li>
+
+
+
+<li>
+
+<a href="#">
+<i class="fa-solid fa-gear"></i>
+Settings
+</a>
+
+</li>
+
+
+
+<li>
+
+<a href="index.html">
+
+<i class="fa-solid fa-right-from-bracket"></i>
+
+Logout
+
+</a>
+
+</li>
+
+
+</ul>
+
+
+</aside>
+
+
+
+<div class="overlay"></div>
+
+
+
+
+<main class="content">
+
+
+<button class="mobile-menu">
+
+<i class="fa-solid fa-bars"></i>
+
+</button>
+
+
+
+
+<header class="topbar">
+
+
+<h2>Dashboard</h2>
+
+
+<div class="user">
+
+
+<i class="fa-solid fa-bell"></i>
+
+
+<img src="images/ooo.jpg">
+
+
+<span id="username">
+Guest
+</span>
+
+
+</div>
+
+
+</header>
+
+
+
+
+
+<section class="welcome">
+
+
+<h1>
+Welcome Back 👋
+</h1>
+
+
+<p>
+Ready to challenge yourself today?
+</p>
+
+
+</section>
+
+
+
+
+
+
+<section class="cards">
+
+<div class="card">
+    <h3>Total Score</h3>
+    <i class="fa-solid fa-trophy"></i>
+    <h2 id="totalScore">0</h2>
+</div>
+
+<div class="card">
+    <h3>Quizzes Completed</h3>
+    <i class="fa-solid fa-book-open"></i>
+    <h2 id="quizCompleted">0</h2>
+</div>
+
+<div class="card">
+    <h3>Total XP</h3>
+    <i class="fa-solid fa-bolt"></i>
+    <h2 id="totalXP">0</h2>
+</div>
+
+<div class="card">
+    <h3>Rank</h3>
+    <i class="fa-solid fa-crown"></i>
+    <h2 id="rank">#--</h2>
+</div>
+
+</section>
+
+
+
+<section class="progress-section">
+
+<h2>Your Progress</h2>
+
+
+<div class="progress-box">
+
+
+    <div class="progress-circle">
+        <span id="progressPercent">0%</span>
+    </div>
+
+
+
+    <div class="progress-info">
+
+        <h3 id="level">
+            Level 1 Student
+        </h3>
+
+
+        <p>
+            Complete quizzes to gain XP.
+        </p>
+
+
+        <div class="bar">
+
+            <span id="progressBar"></span>
+
+        </div>
+
+
+        <small id="xpText">
+            0 / 1000 XP
+        </small>
+
+
+    </div>
+
+
+</div>
+
+
+</section>
+
+<section class="leaderboard">
+
+    <h2>
+        🏆 Global Leaderboard
+    </h2>
+
+    <div class="leader-list" id="leaderboardList">
+
+        <!-- Players will appear here automatically -->
+
+    </div>
+
+</section>
+
+
+<section class="achievements">
+
+<h2>🏆 Achievements</h2>
+
+<div class="achievement-list">
+
+<div class="achievement" id="badge1">
+🥉 First Quiz
+</div>
+
+<div class="achievement" id="badge2">
+⚡ Rising Star
+</div>
+
+<div class="achievement" id="badge3">
+🔥 Quiz Master
+</div>
+
+<div class="achievement" id="badge4">
+👑 Legend
+</div>
+
+</div>
+
+</section>
+
+
+
+
+<section class="subjects">
+
+
+<h2>
+Continue Learning
+</h2>
+
+
+
+<div class="subject-list">
+
+
+<div class="subject">
+
+<h3>
+Mathematics
+</h3>
+
+<button>
+Continue
+</button>
+
+</div>
+
+
+
+
+<div class="subject">
+
+<h3>
+Physics
+</h3>
+
+<button>
+Continue
+</button>
+
+</div>
+
+
+
+
+<div class="subject">
+
+<h3>
+Chemistry
+</h3>
+
+<button>
+Continue
+</button>
+
+</div>
+
+
+
+</div>
+</section>
+</main>
+<script>
+
+
+// Mobile menu
+
+const menuBtn=document.querySelector(".mobile-menu");
+
+const sidebar=document.querySelector(".sidebar");
+
+const overlay=document.querySelector(".overlay");
+
+
+menuBtn.onclick=()=>{
+
+sidebar.classList.toggle("active");
+
+overlay.classList.toggle("active");
+
+};
+
+
+overlay.onclick=()=>{
+
+sidebar.classList.remove("active");
+
+overlay.classList.remove("active");
+
+};
+
+
+
+
+
+// Load user
+
+const username = document.getElementById("username");
+
+const savedEmail = localStorage.getItem("userEmail");
+
+
+if(savedEmail){
+
+    // remove @gmail.com part
+    let name = savedEmail.split("@")[0];
+
+    username.textContent = name;
+
+}else{
+
+    username.textContent = "Guest";
+
+}
+
+
+
+</script>
+
+
+<script>
+
+// PROGRESS SYSTEM
+let progressXP =
+(Number(localStorage.getItem("mathXP")) || 0) +
+(Number(localStorage.getItem("physicsXP")) || 0) +
+(Number(localStorage.getItem("chemistryXP")) || 0) +
+(Number(localStorage.getItem("biologyXP")) || 0) +
+(Number(localStorage.getItem("historyXP")) || 0) +
+(Number(localStorage.getItem("englishXP")) || 0) +
+(Number(localStorage.getItem("computerXP")) || 0) +
+(Number(localStorage.getItem("geographyXP")) || 0) +
+(Number(localStorage.getItem("totalXP")) || 0);
+
+const TOTAL_QUIZZES = 1032;
+
+let completed =
+Number(localStorage.getItem("completedQuizzes")) || 0;
+
+let percent = Math.min((completed / TOTAL_QUIZZES) * 100, 100);
+console.log("Completed quizzes:", completed);
+console.log("Progress percent:", percent);
+
+document.getElementById("progressPercent").innerHTML =
+percent.toFixed(1) + "%";
+
+
+document.getElementById("progressBar").style.width =
+percent + "%";
+
+
+document.getElementById("xpText").innerHTML =
+completed + " / " + TOTAL_QUIZZES + " Quizzes Completed";
+
+let score = localStorage.getItem("totalScore") || 0;
+
+let xp = localStorage.getItem("totalXP") || 0;
+
+
+
+document.getElementById("totalScore").innerHTML = score;
+
+document.getElementById("totalXP").innerHTML = xp;
+
+document.getElementById("quizCompleted").innerHTML = completed;
+
+
+let rank = "Beginner";
+
+if (progressXP >= 500) rank = "Learner";
+if (progressXP >= 1500) rank = "Intermediate";
+if (progressXP >= 3000) rank = "Advanced";
+if (progressXP >= 6000) rank = "Expert";
+if (progressXP >= 12000) rank = "Master";
+if (progressXP >= 20000) rank = "Legend";
+document.getElementById("rank").innerHTML = rank;
+
+let circle = document.querySelector(".progress-circle");
+
+circle.style.background =
+`
+conic-gradient(
+#00eaff ${percent * 3.6}deg,
+rgba(255,255,255,.08) ${percent * 3.6}deg
+)
+`;
+
+// =========================
+// ACHIEVEMENTS
+// =========================
+
+function unlockAchievements(){
+
+    if(completed >= 1){
+
+        document.getElementById("badge1").classList.add("unlocked");
+
+    }
+
+
+  if(progressXP >= 1500){
+
+    document.getElementById("badge2").classList.add("unlocked");
+
+}
+
+
+    if(progressXP >= 500){
+
+        document.getElementById("badge3").classList.add("unlocked");
+
+    }
+
+
+    if(progressXP >= 5000){
+
+        document.getElementById("badge4").classList.add("unlocked");
+
+    }
+
+}
+
+
+unlockAchievements();
+function showAchievement(text){
+
+    const popup = document.getElementById("achievementPopup");
+
+    popup.innerHTML = "🏆 " + text;
+
+    popup.classList.add("show");
+
+    setTimeout(function(){
+
+        popup.classList.remove("show");
+
+    },3000);
+
+}
+
+// =========================
+// ACHIEVEMENTS UNLOCK
+// =========================
+
+if(completed >= 1){
+
+    document.getElementById("badge1").classList.add("unlocked");
+
+}
+
+if(progressXP >= 1500){
+
+    document.getElementById("badge2").classList.add("unlocked");
+
+}
+
+if(progressXP >= 500){
+
+    document.getElementById("badge3").classList.add("unlocked");
+
+}
+
+if(progressXP >= 5000){
+
+    document.getElementById("badge4").classList.add("unlocked");
+
+}
+
+// =========================
+// LEADERBOARD SYSTEM
+// =========================
+
+// Current player
+const player = {
+    name: username.textContent,
+    score: Number(localStorage.getItem("totalScore")) || 0,
+    xp: progressXP
+};
+
+// Load existing leaderboard
+let leaderboard =
+JSON.parse(localStorage.getItem("leaderboard")) || [];
+
+// Check if player already exists
+let existing = leaderboard.find(p => p.name === player.name);
+
+if(existing){
+
+    existing.score = Math.max(existing.score, player.score);
+    existing.xp = Math.max(existing.xp, player.xp);
+
+}else{
+
+    leaderboard.push(player);
+
+}
+
+// Sort highest score first
+leaderboard.sort((a,b)=>b.score-a.score);
+
+// Save
+localStorage.setItem(
+"leaderboard",
+JSON.stringify(leaderboard)
+);
+
+// Display
+const board = document.getElementById("leaderboardList");
+
+board.innerHTML="";
+
+leaderboard.forEach((player,index)=>{
+
+let medal = "";
+
+if(index === 0) medal = "🥇";
+else if(index === 1) medal = "🥈";
+else if(index === 2) medal = "🥉";
+let topClass = "";
+
+if(index === 0){
+    topClass = "gold";
+}
+else if(index === 1){
+    topClass = "silver";
+}
+else if(index === 2){
+    topClass = "bronze";
+}
+
+board.innerHTML += `
+<div class="leader-item ${topClass}">
+
+<div class="leader-rank">
+${medal} #${index + 1}
+</div>
+
+<div class="leader-profile">
+
+    <div class="avatar">
+        👤
+    </div>
+
+    <div>
+        <div class="leader-name">
+            ${player.name}
+        </div>
+
+        <small>
+            Level ${Math.floor(player.xp / 500) + 1} Student
+        </small>
+
+    </div>
+
+</div>
+
+
+<div class="leader-score">
+    ${player.score} pts
+</div>
+
+
+<div class="leader-xp">
+    ⚡ ${player.xp} XP
+</div>
+
+</div>
+`;
+
+});
+
+</script>
+<div id="achievementPopup" class="achievement-popup">
+    🏆 Achievement Unlocked!
+</div>
+</body>
+
+</html>

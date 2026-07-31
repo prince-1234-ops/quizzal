@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Quizzal Profile</title>
+<link rel="icon" type="image/png" href="images/9.png">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<link rel="stylesheet" href="profile.css">
+
+</head>
+
+
+<body>
+<aside class="sidebar">
+
+
+<div class="logo">
+
+<i class="fa-solid fa-graduation-cap"></i>
+
+<span>Quizzal</span>
+
+</div>
+
+
+
+<ul class="menu">
+
+
+<li>
+
+<a href="dashboard.html">
+<i class="fa-solid fa-house"></i>
+dashboard
+</a>
+
+</li>
+
+
+
+<li>
+
+<a href="start.html">
+<i class="fa-solid fa-book"></i>
+Subjects
+</a>
+
+</li>
+
+
+
+<li>
+
+<a href="#">
+<i class="fa-solid fa-chart-line"></i>
+Progress
+</a>
+
+</li>
+
+
+
+<li>
+
+<a href="#">
+<i class="fa-solid fa-trophy"></i>
+Leaderboard
+</a>
+
+</li>
+
+
+
+<li>
+
+<a href="#">
+<i class="fa-solid fa-medal"></i>
+Achievements
+</a>
+
+</li>
+
+<li class="active">
+
+<a href="#">
+    <i class="fa-solid fa-user"></i>
+profile
+</a>
+
+</li>
+
+
+
+
+
+<li>
+
+<a href="#">
+<i class="fa-solid fa-gear"></i>
+Settings
+</a>
+
+</li>
+
+
+
+<li>
+
+<a href="index.html">
+
+<i class="fa-solid fa-right-from-bracket"></i>
+
+Logout
+
+</a>
+
+</li>
+
+
+</ul>
+
+
+</aside>
+
+
+
+<div class="overlay"></div>
+
+<main class="content">
+
+
+<button class="mobile-menu">
+
+<i class="fa-solid fa-bars"></i>
+
+</button>
+
+
+<div class="profile-card">
+
+
+    <div class="avatar">
+
+        <img id="profileImage"
+        src="images/default-avatar.png"
+        alt="Profile Picture">
+
+        <div class="camera-icon">
+            <i class="fa-solid fa-camera"></i>
+        </div>
+
+        <input type="file"
+        id="imageUpload"
+        accept="image/*"
+        hidden>
+
+    </div>
+
+
+
+    <div class="name-row">
+
+        <h2 id="profileName">
+            Student
+        </h2>
+
+
+        <span class="level-badge" id="levelBadge">
+            Level 1
+        </span>
+
+    </div>
+
+
+
+    <p class="role">
+        Quizzal Learner
+    </p>
+
+
+
+    <div class="profile-rewards">
+
+
+        <div class="reward streak">
+
+            🔥
+
+            <div>
+                <strong id="streakCount">
+                    0
+                </strong>
+
+                <span>
+                    Day Streak
+                </span>
+            </div>
+
+        </div>
+
+
+
+        <div class="reward xp">
+
+            ⚡
+
+            <div>
+                <strong id="headerXP">
+                    0
+                </strong>
+
+                <span>
+                    Total XP
+                </span>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <button id="editProfileBtn" class="edit-btn">
+
+        <i class="fa-solid fa-pen"></i>
+
+        Edit Profile
+
+    </button>
+
+
+</div>
+<div class="xp-section">
+
+    <div class="xp-header">
+
+        <span>XP Progress</span>
+
+        <span id="xpText">
+            0/ 1032XP
+        </span>
+
+    </div>
+
+
+    <div class="xp-bar">
+
+        <div class="xp-fill" id="xpFill"></div>
+
+    </div>
+
+</div>
+
+</div>
+<div class="stats-container">
+
+    <div class="stat-card">
+
+        <h3>
+<i class="fa-solid fa-trophy"></i>
+Total Score
+</h3>
+
+        <h2 id="profileScore">
+            0
+        </h2>
+
+    </div>
+
+
+<div class="stat-card">
+
+    <h3>
+<i class="fa-solid fa-bolt"></i>
+Total XP
+</h3>
+
+    <h2 id="profileXP">
+        0
+    </h2>
+
+</div>
+<div class="stat-card">
+
+    <h3>
+<i class="fa-solid fa-book-open"></i>
+Completed Quizzes
+</h3>
+
+    <h2 id="profileCompleted">
+        0
+    </h2>
+
+</div>
+
+<div class="stat-card">
+
+  <h3>
+<i class="fa-solid fa-crown"></i>
+Rank
+</h3>
+
+    <h2 id="profileRank">
+        Beginner
+    </h2>
+
+</div>
+<div class="stat-card">
+
+<h3>
+<i class="fa-solid fa-star"></i>
+Favorite Subject
+</h3>
+
+    <h2 id="favoriteSubject">
+        None
+    </h2>
+
+</div>
+</div>
+<section class="profile-achievements">
+
+<h2>🏆 My Achievements</h2>
+
+<div class="achievement-list">
+
+<div class="achievement" id="profileBadge1">
+🥉 First Quiz
+</div>
+
+<div class="achievement" id="profileBadge2">
+⚡ Rising Star
+</div>
+
+<div class="achievement" id="profileBadge3">
+🔥 Quiz Master
+</div>
+
+<div class="achievement" id="profileBadge4">
+👑 Legend
+</div>
+
+</div>
+
+</section>
+
+
+<script>
+    document.getElementById("editProfileBtn").onclick = function(){
+
+    alert("Edit Profile feature coming soon!");
+
+};
+
+    const cameraIcon = document.querySelector(".camera-icon");
+
+cameraIcon.onclick = function () {
+    imageUpload.click();
+};
+    let completed = Number(localStorage.getItem("completedQuizzes")) || 0;
+let xp = Number(localStorage.getItem("totalXP")) || 0;
+const xpFill = document.getElementById("xpFill");
+const xpText = document.getElementById("xpText");
+
+
+let currentXP = xp;
+
+
+
+
+
+if(xp >= 500){
+    nextLevelXP = 1500;
+}
+
+if(xp >= 1500){
+    nextLevelXP = 3000;
+}
+
+if(xp >= 3000){
+    nextLevelXP = 6000;
+}
+
+if(xp >= 6000){
+    nextLevelXP = 12000;
+}
+
+if(xp >= 12000){
+    nextLevelXP = 20000;
+}
+
+
+let previousLevelXP = 0;
+
+
+if(xp >= 500){
+    previousLevelXP = 1032;
+}
+
+if(xp >= 1500){
+    previousLevelXP = 1500;
+}
+
+if(xp >= 3000){
+    previousLevelXP = 3000;
+}
+
+if(xp >= 6000){
+    previousLevelXP = 6000;
+}
+
+if(xp >= 12000){
+    previousLevelXP = 12000;
+}
+
+let progress =
+(completed / 1032) * 100;
+
+
+if(progress > 100){
+    progress = 100;
+}
+
+
+xpFill.style.width = progress + "%";
+
+
+xpText.textContent =
+completed + " / 1032 Quizzes Completed";
+
+if(completed >= 1){
+
+    document.getElementById("profileBadge1")
+    .classList.add("unlocked");
+
+}
+
+
+if(xp >= 1000){
+
+    document.getElementById("profileBadge2")
+    .classList.add("unlocked");
+
+}
+
+
+if(xp >= 5000){
+
+    document.getElementById("profileBadge3")
+    .classList.add("unlocked");
+
+}
+
+
+if(xp >= 20000){
+
+    document.getElementById("profileBadge4")
+    .classList.add("unlocked");
+
+}
+
+const favoriteSubject = document.getElementById("favoriteSubject");
+
+
+let subjects = {
+    Mathematics: Number(localStorage.getItem("mathScore")) || 0,
+    Physics: Number(localStorage.getItem("physicsScore")) || 0,
+    Chemistry: Number(localStorage.getItem("chemistryScore")) || 0,
+    Biology: Number(localStorage.getItem("biologyScore")) || 0,
+    History: Number(localStorage.getItem("historyScore")) || 0,
+    English: Number(localStorage.getItem("englishScore")) || 0,
+    Computer: Number(localStorage.getItem("computerScore")) || 0,
+    Geography: Number(localStorage.getItem("geographyScore")) || 0
+};
+
+
+let favorite = "None";
+let highest = 0;
+
+
+for(let subject in subjects){
+
+    if(subjects[subject] > highest){
+
+        highest = subjects[subject];
+        favorite = subject;
+
+    }
+
+}
+
+
+favoriteSubject.textContent = favorite;
+    
+    const profileRank = document.getElementById("profileRank");
+
+
+let rank = "Beginner";
+
+if (xp >= 500) rank = "Learner";
+if (xp >= 1500) rank = "Intermediate";
+if (xp >= 3000) rank = "Advanced";
+if (xp >= 6000) rank = "Expert";
+if (xp >= 12000) rank = "Master";
+if (xp >= 20000) rank = "Legend";
+
+profileRank.textContent = rank;
+const levelBadge = document.getElementById("levelBadge");
+
+let level = 1;
+
+if(xp >= 500) level = 2;
+if(xp >= 1500) level = 3;
+if(xp >= 3000) level = 4;
+if(xp >= 6000) level = 5;
+if(xp >= 12000) level = 6;
+if(xp >= 20000) level = 7;
+
+
+levelBadge.textContent = "Level " + level;
+    const profileScore = document.getElementById("profileScore");
+
+profileScore.textContent =
+localStorage.getItem("totalScore") || 0;
+const profileXP = document.getElementById("profileXP");
+
+profileXP.textContent =
+localStorage.getItem("totalXP") || 0;
+document.getElementById("headerXP").textContent = xp;
+const profileCompleted = document.getElementById("profileCompleted");
+
+profileCompleted.textContent =
+localStorage.getItem("completedQuizzes") || 0;
+
+
+const profileName = document.getElementById("profileName");
+
+const savedEmail = localStorage.getItem("userEmail");
+
+
+if(savedEmail){
+
+    let name = savedEmail.split("@")[0];
+
+    profileName.textContent = name;
+
+}else{
+
+    profileName.textContent = "Guest";
+
+}
+
+const profileImage = document.getElementById("profileImage");
+const imageUpload = document.getElementById("imageUpload");
+
+// Open file picker when picture is clicked
+profileImage.onclick = function () {
+    imageUpload.click();
+};
+
+// Load saved image
+const savedImage = localStorage.getItem("profileImage");
+
+if (savedImage) {
+    profileImage.src = savedImage;
+}
+
+// Save new image
+imageUpload.onchange = function () {
+
+    const file = this.files[0];
+
+    if (!file) return;
+
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+
+        profileImage.src = e.target.result;
+
+        localStorage.setItem(
+            "profileImage",
+            e.target.result
+        );
+
+    };
+
+    reader.readAsDataURL(file);
+
+};
+</script>
+<script>
+
+const menuBtn = document.querySelector(".mobile-menu");
+
+const sidebar = document.querySelector(".sidebar");
+
+const overlay = document.querySelector(".overlay");
+
+
+menuBtn.onclick = () => {
+
+    sidebar.classList.toggle("active");
+
+    overlay.classList.toggle("active");
+
+};
+
+
+overlay.onclick = () => {
+
+    sidebar.classList.remove("active");
+
+    overlay.classList.remove("active");
+
+};
+
+
+</script>
+</body>
+
+</html>

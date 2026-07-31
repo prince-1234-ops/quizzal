@@ -1,0 +1,573 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --blue: #00eaff;
+    --dark: #050816;
+    --glass: rgba(255, 255, 255, .08);
+    --border: rgba(255, 255, 255, .18);
+    --white: #fff;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--dark);
+    overflow-x: hidden;
+    overflow-y: auto;
+    color: white;
+}
+
+/* ==========================
+   BACKGROUND & HERO LAYOUT
+========================== */
+.hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 120px 20px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(5, 8, 22, .7), rgba(5, 8, 22, .9)), url("images/ooo.jpg");
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+/* AMBIENT BACKGROUND GLOW */
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: var(--blue);
+    filter: blur(180px);
+    opacity: .25;
+    animation: moveGlow 8s infinite alternate;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes moveGlow {
+    from { transform: translate(-200px, -100px); }
+    to { transform: translate(200px, 100px); }
+}
+
+/* NAVBAR */
+
+header{
+    position:fixed;
+    top:20px;
+    left:50%;
+    transform:translateX(-50%);
+    width:92%;
+    max-width:1400px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:16px 35px;
+
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(25px);
+
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:18px;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.35),
+        0 0 20px rgba(0,229,255,.12);
+
+    z-index:1000;
+
+    transition:.4s;
+}
+
+.logo{
+    font-size:2rem;
+    font-weight:700;
+    color:#00eaff;
+    letter-spacing:2px;
+    cursor:pointer;
+    transition:.4s;
+}
+
+.logo:hover{
+    transform:scale(1.08);
+    text-shadow:
+        0 0 10px #00eaff,
+        0 0 25px #00eaff;
+}
+
+
+nav{
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.nav-links{
+    list-style:none;
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.nav-links li a{
+
+    position:relative;
+
+    text-decoration:none;
+
+    color:white;
+
+    padding:12px 24px;
+
+    border-radius:40px;
+
+    transition:.35s;
+
+    overflow:hidden;
+
+}
+
+.nav-links li a::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:0;
+
+    width:0;
+    height:2px;
+
+    background:#00eaff;
+
+    transition:.4s;
+
+}
+
+
+.nav-links li a:hover,
+.nav-links li a.active{
+
+    color:#00eaff;
+
+    background:rgba(0,229,255,.08);
+
+}
+
+.nav-links li a:hover::before,
+.nav-links li a.active::before{
+
+    width:100%;
+
+}
+.logo:hover {
+    text-shadow: 0 0 15px var(--blue), 0 0 35px var(--blue);
+    transform: scale(1.05);
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 22px;
+    border-radius: 30px;
+    transition: .4s ease;
+    border: 1px solid transparent;
+}
+
+nav a:hover,
+nav .active {
+    background: var(--blue);
+    color: #000;
+    font-weight: 500;
+    box-shadow: 0 0 20px var(--blue);
+}
+
+/* ==========================
+   MAIN SLIDING INTERFACE CONTAINER
+========================== */
+.container {
+    position: relative;
+    width: 850px;
+    height: 520px;
+    margin-top: 40px;
+    background: rgba(255, 255, 255, .04);
+    border-radius: 30px;
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, .15);
+    overflow: hidden;
+    box-shadow: 0 30px 70px black;
+    z-index: 10;
+}
+
+/* FORM BOX POSITIONING SYSTEMS */
+.form-box {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    padding: 40px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: .8s cubic-bezier(0.77, 0, 0.175, 1);
+    z-index: 5;
+}
+
+.form-box h1 {
+    font-size: 2.2rem;
+    margin-bottom: 5px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.form-box p {
+    text-align: center;
+    color: #cbd5e1;
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+}
+
+.login {
+    left: 0;
+    opacity: 1;
+}
+
+.register {
+    right: -50%;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* SLIDING ACTIVE PANEL TOGGLES */
+.container.active .login {
+    left: -50%;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.container.active .register {
+    right: 0;
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* ==========================
+   MOVING BLUE SLIDER PANEL
+========================= */
+.info-panel {
+    position: absolute;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+    background: linear-gradient(135deg, #00eaff, #0066ff, #001bff, #00eaff);
+    background-size: 400% 400%;
+    animation: panelMove 8s ease infinite;
+    transition: .8s cubic-bezier(0.77, 0, 0.175, 1);
+    z-index: 10;
+}
+
+@keyframes panelMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container.active .info-panel {
+    right: 50%;
+}
+
+.info-panel::before {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: white;
+    border-radius: 50%;
+    opacity: .25;
+    filter: blur(80px);
+    animation: lightFloat 5s infinite alternate;
+    pointer-events: none;
+}
+
+@keyframes lightFloat {
+    from { transform: translate(-80px, -50px); }
+    to { transform: translate(80px, 80px); }
+}
+
+.info-panel h2,
+.info-panel p {
+    position: relative;
+    z-index: 12;
+}
+
+.info-panel h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.info-panel p {
+    margin-top: 15px;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* ==========================
+   INPUT FIELDS & FLOATING LABELS
+========================== */
+.input-box {
+    position: relative;
+    width: 100%;
+    margin: 25px 0;
+    border-bottom: 2px solid rgba(255, 255, 255, .4);
+}
+
+.input-box input {
+    width: 100%;
+    height: 45px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 1rem;
+    padding: 0 35px 0 5px;
+}
+
+.input-box label {
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.8);
+    pointer-events: none;
+    transition: .3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+    top: -8px;
+    font-size: .8rem;
+    color: #00eaff;
+}
+
+.input-box i {
+    position: absolute;
+    right: 5px;
+    top: 12px;
+    font-size: 1.2rem;
+    color: #00eaff;
+}
+
+/* UNDERLINE GLOW TRAIL */
+.input-box::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background: #00eaff;
+    transition: .4s ease;
+}
+
+.input-box:focus-within::after {
+    width: 100%;
+}
+
+/* ==========================
+   BUTTONS & LINKS ACCESSORIES
+========================== */
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: .85rem;
+    margin: 15px 0 25px;
+}
+
+.options a {
+    color: #00eaff;
+    text-decoration: none;
+}
+
+.options a:hover {
+    text-decoration: underline;
+}
+
+button {
+    width: 100%;
+    height: 48px;
+    border: none;
+    border-radius: 50px;
+    background: #00eaff;
+    color: #001018;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: .3s ease;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 234, 255, .5);
+}
+
+button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,.5), transparent);
+    transition: .6s;
+}
+
+button:hover::before {
+    left: 100%;
+}
+
+.switch {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #cbd5e1;
+}
+
+.switch a {
+    color: #00eaff;
+    text-decoration: none;
+    font-weight: 700;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.switch a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================
+   RESPONSIVE DESIGN BREAKPOINTS
+========================== */
+
+/* 1. TABLETS AND LANDSCAPE PHONES (Max-width: 992px) */
+@media (max-width: 992px) {
+    header {
+        padding: 20px 5%;
+    }
+    .container {
+        width: 700px;
+        height: 500px;
+    }
+    .form-box {
+        padding: 30px 40px;
+    }
+}
+
+/* 2. SMARTPHONES AND COMPACT MOBILE RENDERS (Max-width: 768px) */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 15px;
+        gap: 12px;
+    }
+    
+    .logo {
+        font-size: 1.8rem;
+    }
+    
+    nav {
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    nav a {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+
+    .hero {
+        padding-top: 160px; /* Adds extra clearance so header doesn't compress the login box */
+    }
+
+    /* TRANSFORMS SIDE-BY-SIDE PANELS INTO A STACKED VERTICAL SINGLE COLUMN LAYER */
+    .container {
+        width: 100%;
+        max-width: 420px;
+        height: auto; /* Allow box to expand vertically based on input heights */
+        border-radius: 20px;
+        overflow: visible; /* Permits slider fallback blocks */
+    }
+
+    .form-box {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 40px 30px;
+        top: 0;
+        left: 0 !important;
+        right: 0 !important;
+        opacity: 1 !important;
+        display: block; /* Standard block layer cascades instead of overlaps */
+    }
+
+    /* Hides the heavy sliding decorative side graphic panel to prioritize field viewport room on tight screens */
+    .info-panel {
+        display: none;
+    }
+
+    /* When login form is standard view, completely hide registration form markup */
+    .container:not(.active) .register {
+        display: none;
+    }
+
+    /* When active class flips on register link, flip display parameters */
+    .container.active .login {
+        display: none;
+    }
+    
+    .container.active .register {
+        display: block;
+    }
+}
+
+/* 3. ULTRA SMALL SCREEN OPTIMIZATION (Max-width: 400px) */
+@media (max-width: 400px) {
+    .form-box {
+        padding: 30px 20px;
+    }
+    .form-box h1 {
+        font-size: 1.8rem;
+    }
+    .options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap:10px;
+    }
+}

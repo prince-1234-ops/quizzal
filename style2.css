@@ -1,0 +1,739 @@
+#particles-js{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:-1;
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    text-decoration:none;
+    border:none;
+    outline:none;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    width:100%;
+    min-height:100vh;
+    overflow-x:hidden;
+
+    background-image:url("images/ooo.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+
+/* Header */
+
+/* NAVBAR */
+
+header{
+    position:fixed;
+    top:20px;
+    left:50%;
+    transform:translateX(-50%);
+    width:92%;
+    max-width:1400px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:16px 35px;
+
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(25px);
+
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:18px;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.35),
+        0 0 20px rgba(0,229,255,.12);
+
+    z-index:1000;
+
+    transition:.4s;
+}
+
+.logo{
+    font-size:2rem;
+    font-weight:700;
+    color:#00eaff;
+    letter-spacing:2px;
+    cursor:pointer;
+    transition:.4s;
+}
+
+.logo:hover{
+    transform:scale(1.08);
+    text-shadow:
+        0 0 10px #00eaff,
+        0 0 25px #00eaff;
+}
+
+
+nav{
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.nav-links{
+    list-style:none;
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.nav-links li a{
+
+    position:relative;
+
+    text-decoration:none;
+
+    color:white;
+
+    padding:12px 24px;
+
+    border-radius:40px;
+
+    transition:.35s;
+
+    overflow:hidden;
+
+}
+
+.nav-links li a::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:0;
+
+    width:0;
+    height:2px;
+
+    background:#00eaff;
+
+    transition:.4
+}
+.logo{
+    font-size:2.2rem;
+    font-weight:700;
+    color:#00eaff;
+    letter-spacing:1px;
+    transition:.4s;
+}
+
+.logo:hover{
+    transform:scale(1.08);
+    text-shadow:0 0 20px #00eaff;
+}
+
+nav{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+}
+
+nav a{
+    color:#fff;
+    font-size:1rem;
+    padding:12px 20px;
+    border-radius:50px;
+    transition:.4s;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.08);
+}
+
+nav a:hover,
+nav a.active{
+    background:#00eaff;
+    color:#000;
+    box-shadow:0 0 20px #00eaff;
+}
+
+/* Home */
+
+.home{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:120px 10%;
+    gap:100px;
+}
+/* Image */
+
+.home-image{
+    width:40%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.home-image img{
+    width:420px;
+    max-width:100%;
+    aspect-ratio:1/1;
+    object-fit:cover;
+    border-radius:50%;
+    border:6px solid #00eaff;
+    box-shadow:
+        0 0 25px #00eaff,
+        0 0 60px rgba(0,234,255,.45);
+    transition:.5s;
+}
+
+.home-image img:hover{
+    transform:scale(1.05);
+}
+
+
+
+
+/* Content */
+
+.home-content h1{
+    font-size:4rem;
+    line-height:1.2;
+    margin-bottom:20px;
+}
+
+.home-content h3{
+    font-size:2rem;
+    margin-bottom:25px;
+}
+
+.home-content p{
+    max-width:650px;
+    font-size:1.1rem;
+    line-height:1.8;
+    margin-bottom:35px;
+}
+
+/* Social Icons */
+
+.social-icons{
+    display:flex;
+    gap:18px;
+    margin-bottom:35px;
+}
+
+.social-icons a{
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border:2px solid #00eaff;
+    color:#00eaff;
+    font-size:1.4rem;
+    transition:.4s;
+}
+
+.social-icons a:hover{
+    background:#00eaff;
+    color:#000;
+    transform:translateY(-8px);
+    box-shadow:0 0 20px #00eaff;
+}
+
+/* Button */
+
+.btn{
+    display:inline-block;
+    padding:15px 38px;
+    border-radius:50px;
+    background:#00eaff;
+    color:#000;
+    font-size:1.1rem;
+    font-weight:600;
+    transition:.4s;
+    box-shadow:0 0 20px rgba(0,234,255,.5);
+}
+
+.btn:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 35px #00eaff;
+}
+
+/* Responsive */
+@media (max-width:768px){
+
+header{
+    flex-direction:column;
+    gap:15px;
+    padding:15px;
+}
+
+.logo{
+    font-size:2rem;
+}
+
+nav{
+    width:100%;
+    justify-content:center;
+}
+
+nav a{
+    padding:10px 14px;
+    font-size:.9rem;
+}
+
+.home{
+    flex-direction:column;
+    text-align:center;
+    padding:180px 20px 60px;
+    gap:40px;
+}
+
+.home-image{
+    width:100%;
+}
+
+.home-image img{
+    width:220px;
+    max-width:90%;
+}
+
+.home-content{
+    width:100%;
+}
+
+.home-content h1{
+    font-size:2.3rem;
+}
+
+.home-content h3{
+    font-size:1.4rem;
+}
+
+.home-content p{
+    font-size:1rem;
+}
+
+.social-icons{
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:12px 28px;
+    font-size:1rem;
+}
+
+}
+html,
+body{
+    overflow-x:hidden;
+}
+
+img{
+    max-width:100%;
+    height:auto;
+}
+
+/* ==========================
+   PREMIUM UPGRADES
+========================== */
+
+
+/* DARK OVERLAY ON BACKGROUND */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+        rgba(3,8,20,.65),
+        rgba(3,8,20,.85)
+    );
+
+    z-index:-2;
+
+}
+
+
+
+/* ANIMATED BLUE GLOW */
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    width:600px;
+
+    height:600px;
+
+    border-radius:50%;
+
+    background:#00eaff;
+
+    filter:blur(180px);
+
+    opacity:.18;
+
+    top:20%;
+
+    left:50%;
+
+    animation:glowMove 10s infinite alternate;
+
+    z-index:-1;
+
+}
+
+
+
+@keyframes glowMove{
+
+    from{
+
+        transform:translate(-200px,-100px);
+
+    }
+
+
+    to{
+
+        transform:translate(200px,100px);
+
+    }
+
+}
+
+
+
+
+/* ==========================
+   HEADER UPGRADE
+========================== */
+
+
+header{
+
+    background:
+
+    rgba(255,255,255,.07);
+
+    backdrop-filter:blur(25px);
+
+    box-shadow:
+
+    0 10px 40px rgba(0,0,0,.3);
+
+}
+
+
+
+nav a{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+
+/* link shine */
+
+nav a::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:0;
+
+    height:2px;
+
+    bottom:5px;
+
+    left:50%;
+
+    background:#fff;
+
+    transition:.4s;
+
+    transform:translateX(-50%);
+
+}
+
+
+nav a:hover::before,
+nav a.active::before{
+
+    width:60%;
+
+}
+
+
+
+
+/* ==========================
+   IMAGE UPGRADE
+========================== */
+
+
+.home-image img{
+
+    animation:
+
+    floatImage 5s ease-in-out infinite;
+
+}
+
+
+
+@keyframes floatImage{
+
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+
+    50%{
+
+        transform:translateY(-20px);
+
+    }
+
+}
+
+
+
+.home-image img:hover{
+
+    transform:
+
+    scale(1.08)
+
+    rotate(3deg);
+
+}
+
+
+
+/* ==========================
+   TEXT ENTRANCE
+========================== */
+
+
+.home-content{
+
+    animation:
+
+    slideText 1.2s ease;
+
+}
+
+
+@keyframes slideText{
+
+    from{
+
+        opacity:0;
+
+        transform:translateX(-80px);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:translateX(0);
+
+    }
+
+}
+
+
+
+/* IMAGE ENTRANCE */
+
+
+.home-image{
+
+    animation:
+
+    slideImage 1.2s ease;
+
+}
+
+
+
+@keyframes slideImage{
+
+    from{
+
+        opacity:0;
+
+        transform:translateX(80px);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:translateX(0);
+
+    }
+
+}
+
+
+
+
+/* ==========================
+   BUTTON UPGRADE
+========================== */
+
+
+.btn{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+
+.btn::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-100%;
+
+    width:100%;
+
+    height:100%;
+
+
+    background:
+
+    linear-gradient(
+
+    120deg,
+
+    transparent,
+
+    rgba(255,255,255,.8),
+
+    transparent
+
+    );
+
+
+    transition:.6s;
+
+}
+
+
+.btn:hover::before{
+
+    left:100%;
+
+}
+
+
+
+.btn:hover{
+
+    transform:
+
+    translateY(-6px)
+
+    scale(1.05);
+
+}
+
+
+
+
+/* ==========================
+   SOCIAL ICON UPGRADE
+========================== */
+
+
+.social-icons a{
+
+    backdrop-filter:blur(10px);
+
+    background:
+
+    rgba(255,255,255,.05);
+
+}
+
+
+
+.social-icons a:hover{
+
+    transform:
+
+    translateY(-10px)
+
+    rotate(8deg);
+
+}
+
+
+
+/* ==========================
+   MOBILE IMPROVEMENT
+========================== */
+
+
+@media(max-width:768px){
+
+
+.home-content h1{
+
+    animation:none;
+
+}
+
+
+.home-image img{
+
+    animation:
+
+    floatImage 4s infinite;
+
+}
+
+
+}
+

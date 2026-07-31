@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizzal</title>
+    <link rel="icon" type="image/png" href="images/9.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+
+<a href="#" class="logo">Quizzal</a>
+
+<nav>
+
+<a href="login.html">Home</a>
+<a href="abaut.html">About</a>
+<a href="contact.html">Contact</a>
+<a href="#" class="active">Login</a>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div class="container">
+
+    <div class="form-box login">
+        <h1>Login</h1>
+
+            <form id="loginForm">
+            <div class="input-box">
+                <i class='bx bx-envelope'></i>
+                <input type="email" id="email" required>
+                <label>Email</label>
+            </div>
+
+            <div class="input-box">
+                <i class='bx bx-lock'></i>
+                <input type="password" required>
+                <label>Password</label>
+            </div>
+
+ 
+              <button type="submit">Login</button>
+
+
+               
+
+            <p class="switch">
+                Don't have an account?
+                <a onclick="register()">Register</a>
+            </p>
+
+        </form>
+    </div>
+
+
+    <div class="form-box register">
+
+        <h1>Register</h1>
+
+        <form>
+
+            <div class="input-box">
+                <i class='bx bx-user'></i>
+                <input type="text" required>
+                <label>Username</label>
+            </div>
+
+            <div class="input-box">
+                <i class='bx bx-envelope'></i>
+                <input type="email" id="email" required>
+                <label>Email</label>
+            </div>
+
+            <div class="input-box">
+                <i class='bx bx-lock'></i>
+                <input type="password" required>
+                <label>Password</label>
+            </div>
+
+            <button>Create Account</button>
+
+            <p class="switch">
+                Already have an account?
+                <a onclick="login()">Login</a>
+            </p>
+
+        </form>
+
+    </div>
+
+
+    <div class="info-panel">
+
+        <h2>Welcome to Quizzal</h2>
+
+        <p>
+            Test your knowledge.
+            Learn. Compete. Improve.
+        </p>
+
+    </div>
+
+</div>
+</section>
+<canvas id="particles"></canvas>
+
+<div class="mouse-glow"></div>
+
+<script>
+const container = document.querySelector(".container");
+
+function register() {
+    container.classList.add("active");
+}
+
+function login() {
+    container.classList.remove("active");
+}
+</script>
+
+<script>
+const loginForm = document.getElementById("loginForm");
+
+loginForm.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    const email = document.getElementById("email").value;
+
+    localStorage.setItem("userEmail", email);
+
+    window.location.href = "dashboard.html";
+
+});
+</script>
+</body>
+</html>

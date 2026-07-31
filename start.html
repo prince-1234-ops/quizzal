@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quizzal - Quiz Categories</title>
+<link rel="icon" type="image/png" href="images/9.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    overflow-x:hidden;
+    background:#050816;
+    position:relative;
+    color:white;
+}
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+
+    background:
+    radial-gradient(circle at 20% 30%,#00e5ff33,transparent 30%),
+    radial-gradient(circle at 80% 20%,#2962ff33,transparent 30%),
+    radial-gradient(circle at 50% 80%,#00bcd433,transparent 40%),
+    linear-gradient(135deg,#050816,#091223,#0d1b3d,#050816);
+
+    background-size:300% 300%;
+
+    animation:bgMove 15s ease infinite;
+
+    z-index:-3;
+}
+
+@keyframes bgMove{
+
+0%{
+background-position:0% 50%;
+}
+
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
+}
+
+}
+
+
+
+
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(0,255,255,.25), transparent 20%),
+        radial-gradient(circle at 80% 20%, rgba(0,119,255,.2), transparent 25%),
+        radial-gradient(circle at 50% 80%, rgba(255,255,255,.08), transparent 30%);
+    animation:floatGlow 8s ease-in-out infinite alternate;
+    pointer-events:none;
+}
+
+@keyframes floatGlow{
+    from{
+        transform:translateY(0);
+    }
+    to{
+        transform:translateY(-30px);
+    }
+}
+
+.glow{
+
+position:fixed;
+
+width:350px;
+height:350px;
+
+border-radius:50%;
+
+background:radial-gradient(circle,
+rgba(0,229,255,.30),
+transparent 70%);
+
+pointer-events:none;
+
+transform:translate(-50%,-50%);
+
+z-index:-2;
+
+transition:.05s;
+
+filter:blur(40px);
+
+}
+
+#particles{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+z-index:-1;
+
+}
+/* NAVBAR */
+
+header{
+    position:fixed;
+    top:20px;
+    left:50%;
+    transform:translateX(-50%);
+    width:92%;
+    max-width:1400px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:16px 35px;
+
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(25px);
+
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:18px;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.35),
+        0 0 20px rgba(0,229,255,.12);
+
+    z-index:1000;
+
+    transition:.4s;
+}
+
+.logo{
+    font-size:2rem;
+    font-weight:700;
+    color:#00eaff;
+    letter-spacing:2px;
+    cursor:pointer;
+    transition:.4s;
+}
+
+.logo:hover{
+    transform:scale(1.08);
+    text-shadow:
+        0 0 10px #00eaff,
+        0 0 25px #00eaff;
+}
+
+
+nav{
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.nav-links{
+    list-style:none;
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.nav-links li a{
+
+    position:relative;
+
+    text-decoration:none;
+
+    color:white;
+
+    padding:12px 24px;
+
+    border-radius:40px;
+
+    transition:.35s;
+
+    overflow:hidden;
+
+}
+
+.nav-links li a::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:0;
+
+    width:0;
+    height:2px;
+
+    background:#00eaff;
+
+    transition:.4s;
+
+}
+
+
+.nav-links li a:hover,
+.nav-links li a.active{
+
+    color:#00eaff;
+
+    background:rgba(0,229,255,.08);
+
+}
+
+.nav-links li a:hover::before,
+.nav-links li a.active::before{
+
+    width:100%;
+
+}
+
+/* HERO */
+
+.hero{
+    padding-top:140px;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:4rem;
+    font-weight:700;
+    margin-bottom:20px;
+
+    background:linear-gradient(
+        90deg,
+        #00eaff,
+        #ffffff,
+        #4fc3f7,
+        #00eaff
+    );
+
+    background-size:300%;
+
+    background-clip:text;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    animation:titleGlow 6s linear infinite;
+}
+
+@keyframes titleGlow{
+
+    0%{
+        background-position:0%;
+    }
+
+    100%{
+        background-position:300%;
+    }
+
+}
+
+.hero p{
+
+    color:#d7e5f5;
+
+    font-size:1.15rem;
+
+    max-width:750px;
+
+    margin:20px auto 40px;
+
+    line-height:1.8;
+
+    opacity:.9;
+
+}
+
+
+/* GRID */
+
+.quiz-container{
+
+    width:90%;
+    max-width:1300px;
+    margin:60px auto;
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:35px;
+}
+
+/* CARD */
+
+.quiz-card{
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:25px;
+
+    padding:35px;
+
+    transition:.4s;
+
+    text-align:center;
+}
+
+.quiz-card:hover{
+
+    transform:translateY(-15px);
+
+    box-shadow:0 0 30px #00eaff;
+
+    border-color:#00eaff;
+}
+
+.quiz-card i{
+
+    font-size:4rem;
+
+    color:#00eaff;
+
+    margin-bottom:20px;
+}
+
+.quiz-card h3{
+
+    font-size:1.6rem;
+
+    margin-bottom:15px;
+}
+
+.quiz-card p{
+
+    color:#d1d5db;
+
+    margin-bottom:20px;
+}
+
+.level{
+
+    display:inline-block;
+
+    padding:6px 15px;
+
+    border-radius:30px;
+
+    background:#00eaff;
+
+    color:black;
+
+    font-weight:600;
+
+    margin-bottom:20px;
+}
+
+.btn{
+
+    display:inline-block;
+
+    padding:12px 28px;
+
+    border-radius:40px;
+
+    background:#00eaff;
+
+    color:black;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.btn:hover{
+
+    background:rgb(65, 167, 244);
+}
+
+/* SEARCH BOX */
+
+.search-box{
+
+    width:600px;
+    max-width:95%;
+
+    margin:40px auto;
+
+    display:flex;
+
+    align-items:center;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:60px;
+
+    overflow:hidden;
+
+    transition:.4s;
+
+    box-shadow:
+        0 0 20px rgba(0,229,255,.15);
+
+}
+
+
+.search-box input{
+
+    flex:1;
+
+    background:transparent;
+
+    color:white;
+
+    padding:18px 25px;
+
+    border:none;
+
+    outline:none;
+
+    font-size:17px;
+
+}
+
+
+.search-box button{
+
+    width:75px;
+
+    height:60px;
+
+    border:none;
+
+    background:linear-gradient(
+        135deg,
+        #00eaff,
+        #2196f3
+    );
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:22px;
+
+    transition:.35s;
+
+}
+
+
+.search-box button:hover{
+
+    transform:scale(1.08);
+
+    background:linear-gradient(
+        135deg,
+        #4fc3f7,
+        #00eaff
+    );
+
+}
+
+.search-box input::placeholder{
+
+    color:#cbd5e1;
+
+}
+
+
+
+
+/* FOOTER */
+
+footer{
+
+    text-align:center;
+
+    padding:30px;
+
+    color:#94a3b8;
+}
+@media (max-width:768px){
+
+header{
+    flex-direction:column;
+    padding:15px;
+    gap:15px;
+}
+
+.logo{
+    font-size:1.8rem;
+}
+
+nav{
+    width:100%;
+    justify-content:center;
+}
+
+.nav-links{
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.nav-links li a{
+    padding:10px 15px;
+    font-size:14px;
+}
+
+.hero{
+    padding-top:180px;
+    padding-left:20px;
+    padding-right:20px;
+}
+
+.hero h1{
+    font-size:2.2rem;
+}
+
+.hero p{
+    font-size:1rem;
+}
+
+.search-box{
+    width:100%;
+    max-width:350px;
+}
+
+.quiz-container{
+    width:95%;
+    grid-template-columns:1fr;
+    gap:20px;
+}
+
+.quiz-card{
+    padding:25px;
+}
+
+.quiz-card h3{
+    font-size:1.4rem;
+}
+
+}
+html,
+body{
+    overflow-x:hidden;
+}
+
+img{
+    max-width:100%;
+    height:auto;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        🎓 Quizzal
+    </div>
+
+
+    <nav>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="login.html">Home</a>
+            </li>
+
+            <li>
+            </li>
+
+            <li>
+                <a href="quiz.html" class="active">Quiz</a>
+            </li>
+
+            <li>
+                <a href="abaut.html">About</a>
+            </li>
+
+            <li>
+                <a href="contact.html">Contact</a>
+            </li>
+             <li>
+          <a href="dashboard.html">dashboard</a>
+            </li>
+        </ul>
+
+    </nav>
+
+</header>
+
+<section class="hero">
+
+<h1>Choose Your Quiz</h1>
+
+<p>
+Improve your knowledge, challenge yourself, and become a Quiz Master by selecting your favorite subject.
+</p>
+
+
+<!-- SEARCH BOX -->
+<div class="search-box">
+
+    <input 
+        id="searchInput" 
+        placeholder="Search a subject..."
+    >
+
+    <button onclick="searchSubject()">
+        <i class="fas fa-search"></i>
+    </button>
+
+</div>
+
+</section>
+
+
+<div class="quiz-container">
+
+    <div class="quiz-card">
+        <i class="fas fa-flask"></i>
+        <h3>Chemistry</h3>
+        <p>Learn atoms, elements, reactions, and chemical formulas.</p>
+        <div class="level">Medium</div>
+        <br>
+        <a href="chemistry.html" class="btn">Start Quiz</a>
+    </div>
+
+
+    <div class="quiz-card">
+        <i class="fas fa-square-root-alt"></i>
+        <h3>Mathematics</h3>
+        <p>Challenge yourself with algebra, geometry, and calculations.</p>
+        <div class="level">Hard</div>
+        <br>
+        <a href="mathmatics.html" class="btn">Start Quiz</a>
+    </div>
+
+
+    <div class="quiz-card">
+        <i class="fas fa-atom"></i>
+        <h3>Physics</h3>
+        <p>Explore forces, motion, energy, and the laws of nature.</p>
+        <div class="level">Medium</div>
+        <br>
+        <a href="physics.html" class="btn">Start Quiz</a>
+    </div>
+
+
+    <div class="quiz-card">
+        <i class="fas fa-earth-africa"></i>
+        <h3>Geography</h3>
+        <p>Discover countries, capitals, maps, and the environment.</p>
+        <div class="level">Easy</div>
+        <br>
+        <a href="geograpy.html" class="btn">Start Quiz</a>
+    </div>
+
+
+    <div class="quiz-card">
+        <i class="fas fa-landmark"></i>
+        <h3>History</h3>
+        <p>Test your knowledge about civilizations and important events.</p>
+        <div class="level">Medium</div>
+        <br>
+        <a href="history.html" class="btn">Start Quiz</a>
+    </div>
+
+
+    <div class="quiz-card">
+        <i class="fas fa-code"></i>
+        <h3>Computer Science</h3>
+        <p>Learn programming, technology, and digital concepts.</p>
+        <div class="level">Hard</div>
+        <br>
+        <a href="computer.html" class="btn">Start Quiz</a>
+    </div>
+
+
+    <div class="quiz-card">
+        <i class="fas fa-dna"></i>
+        <h3>Biology</h3>
+        <p>Explore living organisms, cells, genetics, and health.</p>
+        <div class="level">Medium</div>
+        <br>
+        <a href="biology.html" class="btn">Start Quiz</a>
+    </div>
+
+
+    <div class="quiz-card">
+        <i class="fas fa-language"></i>
+        <h3>English</h3>
+        <p>Improve grammar, vocabulary, and communication skills.</p>
+        <div class="level">Easy</div>
+        <br>
+        <a href="english.html" class="btn">Start Quiz</a>
+    </div>
+
+
+</div>
+
+</div>
+
+<footer>
+
+© 2026 Quizzal | Learn • Play • Succeed
+
+</footer>
+<script>
+function searchSubject() {
+
+    let subject = document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
+
+    switch (subject) {
+
+        case "math":
+        case "mathematics":
+            window.location.href = "mathematics.html";
+            break;
+
+        case "chem":
+        case "chemistry":
+            window.location.href = "chemistry.html";
+            break;
+
+        case "physics":
+        case "phy":
+            window.location.href = "physics.html";
+            break;
+
+        case "geography":
+        case "geo":
+            window.location.href = "geography.html";
+            break;
+
+        case "biology":
+        case "bio":
+            window.location.href = "biology.html";
+            break;
+
+        case "english":
+            window.location.href = "english.html";
+            break;
+
+        case "history":
+            window.location.href = "history.html";
+            break;
+
+        case "computer":
+        case "computer science":
+        case "ict":
+            window.location.href = "computer.html";
+            break;
+
+        default:
+            alert("❌ Subject not found!");
+    }
+}
+
+// Allow Enter key to search
+document.getElementById("searchInput").addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        searchSubject();
+    }
+});
+</script>
+<script>
+
+const glow=document.querySelector(".glow");
+
+document.addEventListener("mousemove",(e)=>{
+
+glow.style.left=e.clientX+"px";
+glow.style.top=e.clientY+"px";
+
+});
+
+</script>
+
+</body>
+</html>
