@@ -22,36 +22,112 @@ body {
     overflow-y: auto;
     color: white;
 }
+.hero{
+    position:relative;
+    width:100%;
+    min-height:100vh;
 
-/* ==========================
-   BACKGROUND & HERO LAYOUT
-========================== */
-.hero {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    padding: 120px 20px 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(rgba(5, 8, 22, .7), rgba(5, 8, 22, .9)), url("images/ooo.jpg");
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    overflow:hidden;
+
+    background:
+    radial-gradient(circle at top left,#00eaff33,transparent 35%),
+    radial-gradient(circle at bottom right,#0066ff33,transparent 35%),
+    linear-gradient(135deg,#020617,#050816,#08142d,#020617);
+
+    background-size:200% 200%;
+
+    animation:bgMove 15s ease infinite;
+
+    padding:120px 20px 40px;
 }
 
-/* AMBIENT BACKGROUND GLOW */
-.hero::before {
-    content: "";
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    background: var(--blue);
-    filter: blur(180px);
-    opacity: .25;
-    animation: moveGlow 8s infinite alternate;
-    pointer-events: none;
-    z-index: 1;
+@keyframes bgMove{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+
+}
+
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:700px;
+    height:700px;
+
+    background:#00eaff;
+
+    filter:blur(220px);
+
+    opacity:.18;
+
+    top:-250px;
+    left:-150px;
+
+    animation:aurora1 12s ease-in-out infinite alternate;
+
+}
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:650px;
+    height:650px;
+
+    background:#0066ff;
+
+    filter:blur(220px);
+
+    opacity:.18;
+
+    right:-200px;
+    bottom:-250px;
+
+    animation:aurora2 10s ease-in-out infinite alternate;
+
+}
+
+@keyframes aurora1{
+
+    from{
+        transform:translate(-80px,-40px);
+    }
+
+    to{
+        transform:translate(120px,80px);
+    }
+
+}
+
+@keyframes aurora2{
+
+    from{
+        transform:translate(60px,60px);
+    }
+
+    to{
+        transform:translate(-100px,-80px);
+    }
+
 }
 
 @keyframes moveGlow {
