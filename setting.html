@@ -4,54 +4,40 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Quizzal Settings</title>
 
+
 <link rel="stylesheet" href="settings.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 
 </head>
+
 
 
 <body>
 
 
-<div class="settings-box">
 
+<!-- APP LOADER -->
 
-<!-- LEFT MENU -->
+<div class="app-loader" id="appLoader">
 
-<div class="settings-menu">
+    <div class="loader-circle"></div>
 
-<h1>⚙ Settings</h1>
-
-
-<button class="menu-btn active" onclick="showSection('account')">
-👤 Account
-</button>
-
-
-<button class="menu-btn" onclick="showSection('appearance')">
-🎨 Appearance
-</button>
-
-
-<button class="menu-btn" onclick="showSection('notifications')">
-🔔 Notifications
-</button>
-
-
-<button class="menu-btn" onclick="showSection('privacy')">
-🔒 Privacy
-</button>
-
-
-<button class="menu-btn" onclick="showSection('app')">
-⚙ App
-</button>
-
+    <p>Loading Settings...</p>
 
 </div>
 
@@ -59,223 +45,1036 @@
 
 
 
-<!-- RIGHT CONTENT -->
+<!-- MOBILE HEADER -->
+
+<header class="mobile-header">
+
+    <button class="mobile-menu-btn" id="mobileMenuBtn">
+
+        <i class="fa-solid fa-bars"></i>
+
+    </button>
+
+
+    <div class="mobile-logo">
+
+        <span>Q</span>
+        Quizzal
+
+    </div>
+
+
+</header>
+
+
+
+
+
+
+<!-- SETTINGS APP -->
+
+<div class="settings-app">
+
+
+
+
+
+
+<!-- SIDEBAR -->
+
+<aside class="settings-sidebar" id="settingsSidebar">
+
+
+    <div class="settings-logo">
+
+
+        <div class="logo-icon">
+
+            Q
+
+        </div>
+
+
+        <div>
+
+            <h2>Quizzal</h2>
+
+            <p>Settings</p>
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+    <nav class="settings-nav">
+
+
+
+        <button class="nav-item active" data-section="account">
+
+            <i class="fa-solid fa-user"></i>
+
+            <span>Account</span>
+
+        </button>
+
+
+
+
+
+        <button class="nav-item" data-section="appearance">
+
+            <i class="fa-solid fa-palette"></i>
+
+            <span>Appearance</span>
+
+        </button>
+
+
+
+
+
+        <button class="nav-item" data-section="learning">
+
+            <i class="fa-solid fa-book-open"></i>
+
+            <span>Learning</span>
+
+        </button>
+
+
+
+
+
+        <button class="nav-item" data-section="notifications">
+
+            <i class="fa-solid fa-bell"></i>
+
+            <span>Notifications</span>
+
+        </button>
+
+
+
+
+
+        <button class="nav-item" data-section="privacy">
+
+            <i class="fa-solid fa-lock"></i>
+
+            <span>Privacy</span>
+
+        </button>
+
+
+
+
+
+        <button class="nav-item" data-section="security">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            <span>Security</span>
+
+        </button>
+
+
+
+
+
+        <button class="nav-item" data-section="progress">
+
+            <i class="fa-solid fa-trophy"></i>
+
+            <span>Progress</span>
+
+        </button>
+
+
+
+
+
+        <button class="nav-item" data-section="language">
+
+            <i class="fa-solid fa-language"></i>
+
+            <span>Language</span>
+
+        </button>
+
+
+
+
+
+        <button class="nav-item" data-section="accessibility">
+
+            <i class="fa-solid fa-universal-access"></i>
+
+            <span>Accessibility</span>
+
+        </button>
+
+
+
+    </nav>
+
+
+
+
+
+    <div class="sidebar-bottom">
+
+
+        <button class="nav-item" data-section="help">
+
+            <i class="fa-solid fa-circle-question"></i>
+
+            <span>Help</span>
+
+        </button>
+
+
+
+        <button class="nav-item danger-link" data-section="danger">
+
+            <i class="fa-solid fa-triangle-exclamation"></i>
+
+            <span>Danger Zone</span>
+
+        </button>
+
+
+
+    </div>
+
+
+
+
+
+</aside>
+
+
+
+
+
+
+<!-- MAIN AREA -->
+
+<main class="settings-main">
+
+
+
+
+
+<header class="settings-header">
+
+
+    <div class="breadcrumb">
+
+
+        <span>Dashboard</span>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+        <strong>Settings</strong>
+
+
+    </div>
+
+
+
+
+
+    <div class="header-actions">
+
+
+        <div class="settings-search">
+
+
+            <i class="fa-solid fa-search"></i>
+
+
+            <input 
+            type="text"
+            placeholder="Search settings..."
+            id="settingsSearch">
+
+
+        </div>
+
+
+
+
+
+        <button class="notification-btn">
+
+
+            <i class="fa-solid fa-bell"></i>
+
+
+        </button>
+
+
+
+
+
+        <div class="mini-profile">
+
+
+            <div class="mini-avatar">
+
+                F
+
+            </div>
+
+
+            <div>
+
+                <h4 id="headerUsername">
+
+                    Frank
+
+                </h4>
+
+
+                <p>
+
+                    Student
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+
+
+</header>
+
+
+
+
+
+<!-- CONTENT START -->
 
 <div class="settings-content">
 
 
-
-<section id="account" class="section">
-
-
-<h2>Account</h2>
+<section class="settings-section active" id="account">
 
 
-<div class="profile">
+<h1>
+    Account Settings
+</h1>
 
-<div class="avatar">
-F
+
+<p class="section-description">
+
+Manage your Quizzal profile information.
+
+</p>
+
+
+<!-- PROFILE CARD -->
+
+<div class="profile-card">
+
+
+    <div class="profile-avatar-area">
+
+
+        <div class="large-avatar" id="profileAvatar">
+
+
+            F
+
+
+        </div>
+
+
+
+        <button class="avatar-upload-btn" id="avatarUploadBtn">
+
+
+            <i class="fa-solid fa-camera"></i>
+
+
+        </button>
+
+
+
+        <input 
+        type="file"
+        id="avatarInput"
+        accept="image/*"
+        hidden>
+
+
+    </div>
+
+
+
+
+
+    <div class="profile-details">
+
+
+        <h2 id="profileName">
+
+            Frank Bagiraneza
+
+        </h2>
+
+
+        <p id="profileEmail">
+
+            student@quizzal.com
+
+        </p>
+
+
+        <span class="member-badge">
+
+            <i class="fa-solid fa-graduation-cap"></i>
+
+            Student Account
+
+        </span>
+
+
+    </div>
+
+
+
 </div>
+
+
+
+
+
+
+
+
+<!-- PERSONAL INFORMATION -->
+
+
+<div class="settings-card">
+
+
+    <div class="card-header">
+
+
+        <div>
+
+
+            <h2>
+
+                Personal Information
+
+            </h2>
+
+
+            <p>
+
+                Update your basic account details.
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+    <div class="input-grid">
+
+
+        <div class="input-group">
+
+
+            <label>
+
+                Username
+
+            </label>
+
+
+            <input 
+            type="text"
+            id="usernameInput"
+            placeholder="Enter username">
+
+
+
+        </div>
+
+
+
+
+
+        <div class="input-group">
+
+
+            <label>
+
+                Email Address
+
+            </label>
+
+
+            <input 
+            type="email"
+            id="emailInput"
+            placeholder="Enter email">
+
+
+
+        </div>
+
+
+
+
+
+        <div class="input-group">
+
+
+            <label>
+
+                Phone Number
+
+            </label>
+
+
+            <input 
+            type="tel"
+            id="phoneInput"
+            placeholder="Enter phone number">
+
+
+
+        </div>
+
+
+
+
+
+        <div class="input-group">
+
+
+            <label>
+
+                Country
+
+            </label>
+
+
+            <select id="countryInput">
+
+
+                <option>
+
+                    Rwanda
+
+                </option>
+
+
+                <option>
+
+                    Uganda
+
+                </option>
+
+
+                <option>
+
+                    Kenya
+
+                </option>
+
+
+                <option>
+
+                    Other
+
+                </option>
+
+
+            </select>
+
+
+
+        </div>
+
+
+    </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- ACCOUNT INFORMATION -->
+
+
+<div class="settings-card">
+
+
+<div class="card-header">
 
 
 <div>
 
-<h3 id="displayName">
-Frank
-</h3>
 
-<p>Quizzal Student</p>
+<h2>
 
-</div>
+Account Information
 
-</div>
-
-
-
-<label>
-Username
-</label>
-
-<input id="username" type="text">
-
-
-
-<label>
-Email
-</label>
-
-<input id="email" type="email">
-
-
-
-</section>
-
-
-
-
-
-
-<section id="appearance" class="section hidden">
-
-
-<h2>Appearance</h2>
-
-
-<div class="option">
-
-<span>
-Dark Mode
-</span>
-
-
-<label class="switch">
-
-<input type="checkbox" id="darkMode">
-
-<span class="slider"></span>
-
-</label>
-
-</div>
-
-
-<div class="option">
-
-<span>
-Animations
-</span>
-
-
-<label class="switch">
-
-<input type="checkbox">
-
-<span class="slider"></span>
-
-</label>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-<section id="notifications" class="section hidden">
-
-
-<h2>Notifications</h2>
-
-
-<div class="option">
-
-<span>
-Quiz reminders
-</span>
-
-
-<label class="switch">
-
-<input type="checkbox">
-
-<span class="slider"></span>
-
-</label>
-
-</div>
-
-
-
-<div class="option">
-
-<span>
-Achievement alerts
-</span>
-
-
-<label class="switch">
-
-<input type="checkbox">
-
-<span class="slider"></span>
-
-</label>
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-<section id="privacy" class="section hidden">
-
-
-<h2>Privacy</h2>
-
-
-<div class="option">
-
-<span>
-Show profile to others
-</span>
-
-
-<label class="switch">
-
-<input type="checkbox">
-
-<span class="slider"></span>
-
-</label>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-<section id="app" class="section hidden">
-
-
-<h2>Application</h2>
-
-
-<button class="danger">
-Reset Progress
-</button>
-
-
-<button class="logout">
-Logout
-</button>
+</h2>
 
 
 <p>
-Quizzal Version 1.0
+
+Your account details.
+
 </p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="info-list">
+
+
+
+<div class="info-row">
+
+
+<span>
+
+Account ID
+
+</span>
+
+
+<strong id="accountId">
+
+QZ-004271
+
+</strong>
+
+
+</div>
+
+
+
+
+
+<div class="info-row">
+
+
+<span>
+
+Joined Date
+
+</span>
+
+
+<strong id="joinDate">
+
+August 2026
+
+</strong>
+
+
+</div>
+
+
+
+
+
+<div class="info-row">
+
+
+<span>
+
+Account Type
+
+</span>
+
+
+<strong>
+
+Free Student
+
+</strong>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- PASSWORD -->
+
+
+<div class="settings-card">
+
+
+<div class="card-header">
+
+
+<div>
+
+
+<h2>
+
+Password
+
+</h2>
+
+
+<p>
+
+Change your account password.
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<button class="primary-action">
+
+
+<i class="fa-solid fa-key"></i>
+
+
+Change Password
+
+
+</button>
+
+
+
+</div>
+
+
+
+
 
 
 </section>
 
 
 
-<button id="saveBtn">
-Save Changes
+
+
+
+
+
+
+<!-- APPEARANCE SECTION -->
+
+
+<section 
+class="settings-section"
+id="appearance">
+
+
+
+<h1>
+
+Appearance
+
+</h1>
+
+
+<p class="section-description">
+
+Customize how Quizzal looks.
+
+</p>
+
+
+
+
+
+
+<div class="settings-card">
+
+
+<div class="setting-option">
+
+
+<div>
+
+
+<h3>
+
+Dark Mode
+
+</h3>
+
+
+<p>
+
+Use dark futuristic theme.
+
+</p>
+
+
+</div>
+
+
+
+
+<label class="toggle">
+
+
+<input 
+type="checkbox"
+id="darkModeToggle"
+checked>
+
+
+<span></span>
+
+
+</label>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="setting-option">
+
+
+<div>
+
+
+<h3>
+
+Animations
+
+</h3>
+
+
+<p>
+
+Enable smooth interface animations.
+
+</p>
+
+
+</div>
+
+
+
+
+<label class="toggle">
+
+
+<input 
+type="checkbox"
+id="animationToggle"
+checked>
+
+
+<span></span>
+
+
+</label>
+
+
+</div>
+
+
+
+
+
+<div class="setting-option">
+
+
+<div>
+
+
+<h3>
+
+Glass Effects
+
+</h3>
+
+
+<p>
+
+Enable glass blur design.
+
+</p>
+
+
+</div>
+
+
+
+<label class="toggle">
+
+
+<input 
+type="checkbox"
+id="glassToggle"
+checked>
+
+
+<span></span>
+
+
+</label>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+</section>
+
+
+<!-- LEARNING SECTION -->
+
+<section 
+class="settings-section"
+id="learning">
+
+
+<h1>
+
+Learning Preferences
+
+</h1>
+
+
+<p class="section-description">
+
+Customize your learning experience.
+
+</p>
+
+
+
+
+
+<div class="settings-card">
+
+
+
+<div class="card-header">
+
+<div>
+
+<h2>
+
+Daily Goal
+
+</h2>
+
+
+<p>
+
+Choose your daily XP target.
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="goal-options">
+
+
+<button class="goal-btn">
+
+10 XP
+
+</button>
+
+
+<button class="goal-btn active">
+
+50 XP
+
+</button>
+
+
+<button class="goal-btn">
+
+100 XP
+
+</button>
+
+
+<button class="goal-btn">
+
+200 XP
+
 </button>
 
 
@@ -284,10 +1083,1837 @@ Save Changes
 
 
 </div>
+
+
+
+
+
+
+
+
+
+<div class="settings-card">
+
+
+<div class="card-header">
+
+
+<div>
+
+
+<h2>
+
+Difficulty Level
+
+</h2>
+
+
+<p>
+
+Choose your preferred quiz difficulty.
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<select class="big-select" id="difficultySelect">
+
+
+<option>
+
+Easy
+
+</option>
+
+
+<option selected>
+
+Normal
+
+</option>
+
+
+<option>
+
+Hard
+
+</option>
+
+
+<option>
+
+Expert
+
+</option>
+
+
+</select>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="settings-card">
+
+
+<div class="card-header">
+
+
+<div>
+
+
+<h2>
+
+Favorite Subjects
+
+</h2>
+
+
+<p>
+
+Select subjects you focus on.
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="subject-grid">
+
+
+
+<label class="subject-item">
+
+
+<input type="checkbox" checked>
+
+
+<span>
+
+Mathematics
+
+</span>
+
+
+</label>
+
+
+
+
+
+<label class="subject-item">
+
+
+<input type="checkbox">
+
+
+<span>
+
+Physics
+
+</span>
+
+
+</label>
+
+
+
+
+
+<label class="subject-item">
+
+
+<input type="checkbox" checked>
+
+
+<span>
+
+Chemistry
+
+</span>
+
+
+</label>
+
+
+
+
+
+<label class="subject-item">
+
+
+<input type="checkbox">
+
+
+<span>
+
+Biology
+
+</span>
+
+
+</label>
+
+
+
+
+
+<label class="subject-item">
+
+
+<input type="checkbox">
+
+
+<span>
+
+Geography
+
+</span>
+
+
+</label>
+
+
+
+
+
+<label class="subject-item">
+
+
+<input type="checkbox">
+
+
+<span>
+
+History
+
+</span>
+
+
+</label>
+
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- NOTIFICATIONS SECTION -->
+
+
+<section 
+class="settings-section"
+id="notifications">
+
+
+
+<h1>
+
+Notifications
+
+</h1>
+
+
+
+<p class="section-description">
+
+Control when Quizzal sends you alerts.
+
+</p>
+
+
+
+
+
+
+
+<div class="settings-card">
+
+
+
+
+
+<div class="setting-option">
+
+
+<div>
+
+
+<h3>
+
+Quiz Reminders
+
+</h3>
+
+
+<p>
+
+Daily reminders to practice.
+
+</p>
+
+
+</div>
+
+
+
+<label class="toggle">
+
+
+<input 
+type="checkbox"
+id="quizReminder"
+checked>
+
+
+<span></span>
+
+
+</label>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="setting-option">
+
+
+<div>
+
+
+<h3>
+
+Achievement Alerts
+
+</h3>
+
+
+<p>
+
+Get notified when you unlock rewards.
+
+</p>
+
+
+</div>
+
+
+
+<label class="toggle">
+
+
+<input 
+type="checkbox"
+id="achievementAlerts"
+checked>
+
+
+<span></span>
+
+
+</label>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="setting-option">
+
+
+<div>
+
+
+<h3>
+
+Leaderboard Updates
+
+</h3>
+
+
+<p>
+
+Receive ranking notifications.
+
+</p>
+
+
+</div>
+
+
+
+<label class="toggle">
+
+
+<input 
+type="checkbox"
+id="leaderboardAlerts">
+
+
+<span></span>
+
+
+</label>
+
+
+
+</div>
+
+
+
+
+
+
+<div class="setting-option">
+
+
+<div>
+
+
+<h3>
+
+Sound Effects
+
+</h3>
+
+
+<p>
+
+Play sounds during quizzes.
+
+</p>
+
+
+</div>
+
+
+
+<label class="toggle">
+
+
+<input 
+type="checkbox"
+id="soundToggle"
+checked>
+
+
+<span></span>
+
+
+</label>
+
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- PRIVACY SECTION -->
+
+
+<section 
+class="settings-section"
+id="privacy">
+
+
+
+<h1>
+
+Privacy
+
+</h1>
+
+
+<p class="section-description">
+
+Manage your visibility.
+
+</p>
+
+
+
+
+
+<div class="settings-card">
+
+
+
+
+
+<div class="setting-option">
+
+
+<div>
+
+
+<h3>
+
+Public Profile
+
+</h3>
+
+
+<p>
+
+Allow other students to view your profile.
+
+</p>
+
+
+</div>
+
+
+
+<label class="toggle">
+
+
+<input 
+type="checkbox"
+checked>
+
+
+<span></span>
+
+
+</label>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="setting-option">
+
+
+<div>
+
+
+<h3>
+
+Show XP
+
+</h3>
+
+
+<p>
+
+Display XP on your profile.
+
+</p>
+
+
+</div>
+
+
+
+<label class="toggle">
+
+
+<input 
+type="checkbox"
+checked>
+
+
+<span></span>
+
+
+</label>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="setting-option">
+
+
+<div>
+
+
+<h3>
+
+Show Leaderboard Rank
+
+</h3>
+
+
+<p>
+
+Allow your rank to appear publicly.
+
+</p>
+
+
+</div>
+
+
+
+<label class="toggle">
+
+
+<input 
+type="checkbox">
+
+
+<span></span>
+
+
+</label>
+
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+<!-- SECURITY SECTION -->
+
+<section 
+class="settings-section"
+id="security">
+
+
+<h1>
+
+Security
+
+</h1>
+
+
+<p class="section-description">
+
+Protect your Quizzal account.
+
+</p>
+
+
+
+
+
+<div class="settings-card">
+
+
+<div class="security-item">
+
+
+<div>
+
+<h3>
+
+Change Password
+
+</h3>
+
+
+<p>
+
+Update your account password regularly.
+
+</p>
+
+
+</div>
+
+
+
+<button class="secondary-action">
+
+Change
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+<div class="security-item">
+
+
+<div>
+
+<h3>
+
+Two-Factor Authentication
+
+</h3>
+
+
+<p>
+
+Add an extra layer of protection.
+
+</p>
+
+
+</div>
+
+
+
+
+<label class="toggle">
+
+
+<input 
+type="checkbox"
+id="twoFactor">
+
+
+<span></span>
+
+
+</label>
+
+
+
+</div>
+
+
+
+
+
+
+<div class="security-item">
+
+
+<div>
+
+<h3>
+
+Login Alerts
+
+</h3>
+
+
+<p>
+
+Receive alerts for new logins.
+
+</p>
+
+
+</div>
+
+
+
+
+<label class="toggle">
+
+
+<input 
+type="checkbox"
+checked>
+
+
+<span></span>
+
+
+</label>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- PROGRESS SECTION -->
+
+
+<section 
+class="settings-section"
+id="progress">
+
+
+<h1>
+
+Learning Progress
+
+</h1>
+
+
+<p class="section-description">
+
+Your Quizzal achievements and statistics.
+
+</p>
+
+
+
+
+
+
+<div class="stats-grid">
+
+
+
+<div class="stat-card">
+
+
+<i class="fa-solid fa-bolt"></i>
+
+
+<h2 id="settingsXP">
+
+0
+
+</h2>
+
+
+<p>
+
+Total XP
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="stat-card">
+
+
+<i class="fa-solid fa-fire"></i>
+
+
+<h2 id="settingsStreak">
+
+0
+
+</h2>
+
+
+<p>
+
+Day Streak
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="stat-card">
+
+
+<i class="fa-solid fa-book"></i>
+
+
+<h2 id="settingsQuizzes">
+
+0
+
+</h2>
+
+
+<p>
+
+Quizzes Completed
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="stat-card">
+
+
+<i class="fa-solid fa-trophy"></i>
+
+
+<h2 id="settingsAchievements">
+
+0
+
+</h2>
+
+
+<p>
+
+Achievements
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="settings-card">
+
+
+<h2>
+
+Progress Actions
+
+</h2>
+
+
+
+<button class="secondary-action">
+
+Export Progress
+
+</button>
+
+
+
+<button class="danger-action">
+
+Reset Progress
+
+</button>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- LANGUAGE SECTION -->
+
+
+<section 
+class="settings-section"
+id="language">
+
+
+
+<h1>
+
+Language
+
+</h1>
+
+
+<p class="section-description">
+
+Choose your preferred language.
+
+</p>
+
+
+
+
+
+<div class="settings-card">
+
+
+<select class="big-select" id="languageSelect">
+
+
+<option selected>
+
+English
+
+</option>
+
+
+<option>
+
+French
+
+</option>
+
+
+<option>
+
+Kinyarwanda
+
+</option>
+
+
+<option>
+
+Kiswahili
+
+</option>
+
+
+
+</select>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ACCESSIBILITY SECTION -->
+
+
+<section 
+class="settings-section"
+id="accessibility">
+
+
+
+<h1>
+
+Accessibility
+
+</h1>
+
+
+<p class="section-description">
+
+Make Quizzal easier to use.
+
+</p>
+
+
+
+
+
+
+<div class="settings-card">
+
+
+
+<div class="setting-option">
+
+
+<div>
+
+<h3>
+
+Large Text
+
+</h3>
+
+
+<p>
+
+Increase interface text size.
+
+</p>
+
+
+</div>
+
+
+
+<label class="toggle">
+
+
+<input 
+type="checkbox"
+id="largeText">
+
+
+<span></span>
+
+
+</label>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="setting-option">
+
+
+<div>
+
+<h3>
+
+Reduce Motion
+
+</h3>
+
+
+<p>
+
+Reduce animations.
+
+</p>
+
+
+</div>
+
+
+
+
+<label class="toggle">
+
+
+<input 
+type="checkbox"
+id="reduceMotion">
+
+
+<span></span>
+
+
+</label>
+
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+</section>
+
+
+<!-- HELP SECTION -->
+
+<section 
+class="settings-section"
+id="help">
+
+
+
+<h1>
+
+Help & Support
+
+</h1>
+
+
+<p class="section-description">
+
+Get assistance with Quizzal.
+
+</p>
+
+
+
+
+
+
+<div class="settings-card">
+
+
+
+<div class="help-card">
+
+
+<i class="fa-solid fa-circle-question"></i>
+
+
+<div>
+
+<h3>
+
+Frequently Asked Questions
+
+</h3>
+
+
+<p>
+
+Find answers to common questions.
+
+</p>
+
+
+</div>
+
+
+<button class="secondary-action">
+
+Open
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="help-card">
+
+
+<i class="fa-solid fa-message"></i>
+
+
+<div>
+
+<h3>
+
+Contact Support
+
+</h3>
+
+
+<p>
+
+Talk with the Quizzal support team.
+
+</p>
+
+
+</div>
+
+
+<button class="secondary-action">
+
+Contact
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="help-card">
+
+
+<i class="fa-solid fa-bug"></i>
+
+
+<div>
+
+<h3>
+
+Report a Problem
+
+</h3>
+
+
+<p>
+
+Tell us about bugs or issues.
+
+</p>
+
+
+</div>
+
+
+<button class="secondary-action">
+
+Report
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ABOUT SECTION -->
+
+
+<section 
+class="settings-section"
+id="about">
+
+
+
+<h1>
+
+About Quizzal
+
+</h1>
+
+
+
+<p class="section-description">
+
+Information about the application.
+
+</p>
+
+
+
+
+
+
+<div class="settings-card about-card">
+
+
+
+<div class="about-logo">
+
+Q
+
+</div>
+
+
+
+
+<h2>
+
+Quizzal
+
+</h2>
+
+
+
+<p>
+
+Interactive learning platform for students.
+
+</p>
+
+
+
+
+<div class="version-box">
+
+
+Version
+
+<strong>
+
+2.0.0
+
+</strong>
+
+
+
+</div>
+
+
+
+
+
+<div class="about-links">
+
+
+<a href="#">
+
+Terms of Service
+
+</a>
+
+
+
+<a href="#">
+
+Privacy Policy
+
+</a>
+
+
+
+<a href="#">
+
+Community Guidelines
+
+</a>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- STORAGE SECTION -->
+
+
+<section 
+class="settings-section"
+id="storage">
+
+
+
+<h1>
+
+Storage & Data
+
+</h1>
+
+
+<p class="section-description">
+
+Manage your saved information.
+
+</p>
+
+
+
+
+
+
+
+<div class="settings-card">
+
+
+
+<div class="storage-bar">
+
+
+<div 
+class="storage-fill"
+id="storageFill">
+
+</div>
+
+
+</div>
+
+
+
+<p id="storageText">
+
+Storage used: 0 MB
+
+</p>
+
+
+
+
+
+
+<button class="secondary-action">
+
+Export Data
+
+</button>
+
+
+
+<button class="danger-action">
+
+Clear Cache
+
+</button>
+
+
+
+</div>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- DANGER ZONE -->
+
+
+<section 
+class="settings-section"
+id="danger">
+
+
+
+<h1 class="danger-title">
+
+Danger Zone
+
+</h1>
+
+
+
+<p class="section-description">
+
+These actions cannot easily be undone.
+
+</p>
+
+
+
+
+
+
+
+<div class="danger-card">
+
+
+
+<div>
+
+
+<h2>
+
+Reset Progress
+
+</h2>
+
+
+<p>
+
+Delete XP, scores and quiz history.
+
+</p>
+
+
+</div>
+
+
+
+<button 
+class="danger-action"
+id="resetProgress">
+
+
+Reset
+
+</button>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="danger-card">
+
+
+
+<div>
+
+
+<h2>
+
+Logout
+
+</h2>
+
+
+<p>
+
+Sign out from this device.
+
+</p>
+
+
+</div>
+
+
+
+<button 
+class="danger-action"
+id="logoutBtn">
+
+
+Logout
+
+</button>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+</div>
+
+<!-- END SETTINGS CONTENT -->
+
+
+
+
+
+</main>
+
+<!-- END MAIN -->
+
+
+
+</div>
+
+<!-- END SETTINGS APP -->
+
+
+
+
+
+
+
+
+<!-- TOAST NOTIFICATION -->
+
+
+<div 
+class="toast"
+id="toast">
+
+
+<span id="toastMessage">
+
+Settings saved
+
+</span>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- MODAL -->
+
+
+<div 
+class="modal-overlay"
+id="modalOverlay">
+
+
+
+<div class="modal-box">
+
+
+<button 
+class="close-modal"
+id="closeModal">
+
+
+<i class="fa-solid fa-xmark"></i>
+
+
+</button>
+
+
+
+<div id="modalContent">
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
 
 
 
 <script src="settings.js"></script>
+
+
 
 </body>
 
