@@ -462,22 +462,14 @@ if(savedEmail){
 const currentUser = localStorage.getItem("userEmail") || "Guest";
 
 let progressXP =
-(Number(localStorage.getItem("mathXP")) || 0) +
-(Number(localStorage.getItem("physicsXP")) || 0) +
-(Number(localStorage.getItem("chemistryXP")) || 0) +
-(Number(localStorage.getItem("biologyXP")) || 0) +
-(Number(localStorage.getItem("historyXP")) || 0) +
-(Number(localStorage.getItem("englishXP")) || 0) +
-(Number(localStorage.getItem("computerXP")) || 0) +
-(Number(localStorage.getItem("geographyXP")) || 0) +
-(Number(localStorage.getItem("totalXP")) || 0);
+Number(localStorage.getItem(currentUser + "_totalXP")) || 0;
 
 
 const TOTAL_QUIZZES = 1032;
 
 
 let completed =
-Number(localStorage.getItem("completedQuizzes")) || 0;
+Number(localStorage.getItem(currentUser + "_completedQuizzes")) || 0;
 
 
 let percent = Math.min(
@@ -501,11 +493,11 @@ completed + " / " + TOTAL_QUIZZES + " Quizzes Completed";
 
 
 let score =
-localStorage.getItem("totalScore") || 0;
+localStorage.getItem(currentUser + "_totalScore") || 0;
 
 
 let xp =
-localStorage.getItem("totalXP") || 0;
+localStorage.getItem(currentUser + "_totalXP") || 0;
 
 
 
@@ -631,7 +623,7 @@ if(progressXP >= 5000){
 // Current player
 const player = {
     name: username.textContent,
-    score: Number(localStorage.getItem("totalScore")) || 0,
+score: Number(localStorage.getItem(currentUser + "_totalScore")) || 0,
     xp: progressXP
 };
 
@@ -734,3 +726,4 @@ ${medal} #${index + 1}
 </body>
 
 </html>
+
