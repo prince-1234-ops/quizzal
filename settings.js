@@ -1,33 +1,116 @@
+window.addEventListener("load", ()=>{
 
-// SECTION SWITCHING
 
-function showSection(sectionName){
+    const loader =
+    document.getElementById("appLoader");
 
-    let sections = document.querySelectorAll(".section");
+
+
+    if(loader){
+
+
+        setTimeout(()=>{
+
+
+            loader.style.opacity="0";
+
+
+
+            setTimeout(()=>{
+
+
+                loader.style.display="none";
+
+
+            },500);
+
+
+
+        },800);
+
+
+
+    }
+
+
+
+});
+
+
+
+
+
+
+
+
+
+// ================================
+// SETTINGS SECTIONS
+// ================================
+
+
+const navItems =
+document.querySelectorAll(".nav-item");
+
+
+
+const sections =
+document.querySelectorAll(".settings-section");
+
+
+
+
+
+function openSection(sectionID){
+
+
 
     sections.forEach(section=>{
 
-        section.classList.add("hidden");
+
+        section.classList.remove("active");
+
 
     });
 
 
-    document.getElementById(sectionName)
-    .classList.remove("hidden");
+
+    const target =
+    document.getElementById(sectionID);
 
 
 
-    let buttons = document.querySelectorAll(".menu-btn");
+    if(target){
 
 
-    buttons.forEach(btn=>{
+        target.classList.add("active");
 
-        btn.classList.remove("active");
+
+    }
+
+
+
+
+
+    navItems.forEach(item=>{
+
+
+        item.classList.remove("active");
+
+
+        if(item.dataset.section === sectionID){
+
+
+            item.classList.add("active");
+
+
+        }
+
+
 
     });
 
 
-    event.target.classList.add("active");
 
 }
 
@@ -37,82 +120,32 @@ function showSection(sectionName){
 
 
 
-// USER DATA
 
-const username =
-document.getElementById("username");
+// Sidebar buttons
 
 
-const email =
-document.getElementById("email");
-
-
-const displayName =
-document.getElementById("displayName");
+navItems.forEach(item=>{
 
 
 
+    item.addEventListener("click",()=>{
 
 
 
-window.onload=function(){
-
-
-    username.value =
-    localStorage.getItem("username") || "Frank";
-
-
-    email.value =
-    localStorage.getItem("email") || "";
+        const section =
+        item.dataset.section;
 
 
 
-    displayName.textContent =
-    username.value;
+        openSection(section);
 
 
 
-    document.getElementById("darkMode").checked =
-    localStorage.getItem("darkMode") === "true";
-
-};
+    });
 
 
 
-
-
-
-
-// SAVE SETTINGS
-
-document.getElementById("saveBtn").onclick=function(){
-
-    localStorage.setItem(
-        "username",
-        username.value
-    );
-
-
-    localStorage.setItem(
-        "email",
-        email.value
-    );
-
-
-    // update current user everywhere
-    localStorage.setItem(
-        "currentUser",
-        username.value
-    );
-
-
-    displayName.textContent =
-    username.value;
-
-
-    alert("Profile updated successfully!");
-
-};
+});
 
 
 
@@ -121,118 +154,1262 @@ document.getElementById("saveBtn").onclick=function(){
 
 
 
-// DARK MODE
+
+// ================================
+// MOBILE SIDEBAR
+// ================================
 
 
-document.getElementById("darkMode")
-.onchange=function(){
+const mobileMenuBtn =
+document.getElementById("mobileMenuBtn");
 
 
-    if(this.checked){
+
+const sidebar =
+document.getElementById("settingsSidebar");
 
 
-        document.body.style.background =
-        "#050816";
 
 
-        document.body.style.color =
-        "white";
+
+if(mobileMenuBtn){
+
+
+
+    mobileMenuBtn.addEventListener("click",()=>{
+
+
+        sidebar.classList.toggle("open");
+
+
+    });
+
+
+
+}
+
+
+
+
+
+
+
+// close sidebar after choosing section on mobile
+
+
+navItems.forEach(item=>{
+
+
+    item.addEventListener("click",()=>{
+
+
+        if(window.innerWidth <= 850){
+
+
+            sidebar.classList.remove("open");
+
+
+        }
+
+
+
+    });
+
+
+
+});
+
+
+
+
+
+
+
+
+// ================================
+// CLOSE SIDEBAR WHEN CLICK OUTSIDE
+// ================================
+
+
+document.addEventListener("click",(e)=>{
+
+
+
+    if(
+
+        window.innerWidth <= 850 &&
+
+        sidebar.classList.contains("open") &&
+
+        !sidebar.contains(e.target) &&
+
+        !mobileMenuBtn.contains(e.target)
+
+    ){
+
+
+
+        sidebar.classList.remove("open");
 
 
     }
 
-    else{
 
 
-        document.body.style.background =
-        "#f5f5f5";
-
-
-        document.body.style.color =
-        "#111";
-
-
-    }
-
-
-};
+});
 
 
 
 
 
+// ================================
+// PROFILE ELEMENTS
+// ================================
+
+
+const usernameInput =
+document.getElementById("usernameInput");
+
+
+const emailInput =
+document.getElementById("emailInput");
+
+
+const phoneInput =
+document.getElementById("phoneInput");
+
+
+const countryInput =
+document.getElementById("countryInput");
+
+
+
+const profileName =
+document.getElementById("profileName");
+
+
+const profileEmail =
+document.getElementById("profileEmail");
+
+
+const headerUsername =
+document.getElementById("headerUsername");
+
+
+
+const profileAvatar =
+document.getElementById("profileAvatar");
 
 
 
 
-// RESET PROGRESS
-
-
-const resetButton =
-document.querySelector(".danger");
 
 
 
-resetButton.onclick=function(){
+// ================================
+// LOAD USER DATA
+// ================================
 
 
-    let confirmReset =
-    confirm(
-    "Are you sure you want to delete your progress?"
-    );
-
-
-
-    if(confirmReset){
-
-
-        localStorage.removeItem("totalXP");
-
-        localStorage.removeItem("totalScore");
-
-        localStorage.removeItem("completedQuizzes");
+function loadProfile(){
 
 
 
-        alert(
-        "Progress reset successfully"
+    const username =
+    localStorage.getItem("username")
+    || "Frank Bagiraneza";
+
+
+
+    const email =
+    localStorage.getItem("email")
+    || "student@quizzal.com";
+
+
+
+    const phone =
+    localStorage.getItem("phone")
+    || "";
+
+
+
+    const country =
+    localStorage.getItem("country")
+    || "Rwanda";
+
+
+
+
+
+    if(usernameInput)
+    usernameInput.value=username;
+
+
+
+    if(emailInput)
+    emailInput.value=email;
+
+
+
+    if(phoneInput)
+    phoneInput.value=phone;
+
+
+
+    if(countryInput)
+    countryInput.value=country;
+
+
+
+
+
+    if(profileName)
+    profileName.textContent=username;
+
+
+
+    if(profileEmail)
+    profileEmail.textContent=email;
+
+
+
+    if(headerUsername)
+    headerUsername.textContent=
+    username.split(" ")[0];
+
+
+
+
+    loadAvatar();
+
+
+
+}
+
+
+
+
+
+
+
+loadProfile();
+
+
+
+
+
+
+
+
+
+// ================================
+// SAVE PROFILE
+// ================================
+
+
+function saveProfile(){
+
+
+
+    if(usernameInput){
+
+
+        localStorage.setItem(
+            "username",
+            usernameInput.value
         );
 
 
     }
 
 
-};
+
+
+
+    if(emailInput){
+
+
+        localStorage.setItem(
+            "email",
+            emailInput.value
+        );
+
+
+    }
 
 
 
 
 
 
+    if(phoneInput){
+
+
+        localStorage.setItem(
+            "phone",
+            phoneInput.value
+        );
+
+
+    }
 
 
 
 
-// LOGOUT
+
+    if(countryInput){
 
 
-const logoutButton =
-document.querySelector(".logout");
+        localStorage.setItem(
+            "country",
+            countryInput.value
+        );
+
+
+    }
 
 
 
-logoutButton.onclick=function(){
 
 
-    localStorage.removeItem("currentUser");
+    loadProfile();
 
 
-    alert(
-    "Logged out"
+
+    showToast(
+    "Profile updated successfully"
     );
 
 
-    window.location.href="index.html";
+
+}
 
 
-};
+
+
+
+
+
+
+// Auto save when leaving input
+
+
+[
+usernameInput,
+emailInput,
+phoneInput
+
+].forEach(input=>{
+
+
+    if(input){
+
+
+        input.addEventListener(
+        "change",
+        saveProfile
+        );
+
+
+    }
+
+
+
+});
+
+
+
+
+
+
+
+
+
+// ================================
+// ACCOUNT ID
+// ================================
+
+
+const accountID =
+document.getElementById("accountId");
+
+
+
+if(accountID){
+
+
+    let id =
+    localStorage.getItem(
+    "accountID"
+    );
+
+
+
+    if(!id){
+
+
+        id =
+        "QZ-" +
+        Math.floor(
+        100000 +
+        Math.random()*900000
+        );
+
+
+
+        localStorage.setItem(
+        "accountID",
+        id
+        );
+
+
+    }
+
+
+
+    accountID.textContent=id;
+
+
+}
+
+
+
+
+
+
+
+
+
+// ================================
+// AVATAR UPLOAD
+// ================================
+
+
+const avatarButton =
+document.getElementById("avatarUploadBtn");
+
+
+const avatarInput =
+document.getElementById("avatarInput");
+
+
+
+
+
+if(avatarButton){
+
+
+    avatarButton.onclick=()=>{
+
+
+        avatarInput.click();
+
+
+    };
+
+
+}
+
+
+
+
+
+
+
+if(avatarInput){
+
+
+
+    avatarInput.addEventListener(
+    "change",
+    ()=>{
+
+
+        const file =
+        avatarInput.files[0];
+
+
+
+        if(file){
+
+
+
+            const reader =
+            new FileReader();
+
+
+
+            reader.onload=function(e){
+
+
+
+                profileAvatar.style.backgroundImage =
+                `url(${e.target.result})`;
+
+
+
+                profileAvatar.style.backgroundSize =
+                "cover";
+
+
+
+                profileAvatar.textContent="";
+
+
+
+                localStorage.setItem(
+                "avatar",
+                e.target.result
+                );
+
+
+
+            };
+
+
+
+            reader.readAsDataURL(file);
+
+
+
+        }
+
+
+
+    });
+
+
+
+}
+
+
+
+
+
+
+
+
+
+function loadAvatar(){
+
+
+
+    const avatar =
+    localStorage.getItem("avatar");
+
+
+
+    if(
+    avatar &&
+    profileAvatar
+    ){
+
+
+        profileAvatar.style.backgroundImage =
+        `url(${avatar})`;
+
+
+        profileAvatar.style.backgroundSize =
+        "cover";
+
+
+        profileAvatar.textContent="";
+
+
+    }
+
+
+
+}
+
+
+
+
+// ================================
+// TOAST SYSTEM
+// ================================
+
+
+const toast =
+document.getElementById("toast");
+
+
+const toastMessage =
+document.getElementById("toastMessage");
+
+
+
+let toastTimer;
+
+
+
+
+
+function showToast(message){
+
+
+
+    if(!toast) return;
+
+
+
+    toastMessage.textContent =
+    message;
+
+
+
+    toast.classList.add("active");
+
+
+
+    clearTimeout(toastTimer);
+
+
+
+    toastTimer =
+    setTimeout(()=>{
+
+
+        toast.classList.remove("active");
+
+
+    },3000);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// ================================
+// MODAL SYSTEM
+// ================================
+
+
+const modalOverlay =
+document.getElementById("modalOverlay");
+
+
+const modalContent =
+document.getElementById("modalContent");
+
+
+const closeModal =
+document.getElementById("closeModal");
+
+
+
+
+
+
+
+function openModal(content){
+
+
+
+    if(!modalOverlay)
+    return;
+
+
+
+    modalContent.innerHTML =
+    content;
+
+
+
+    modalOverlay.classList.add(
+    "active"
+    );
+
+
+
+}
+
+
+
+
+
+
+
+
+
+function hideModal(){
+
+
+
+    if(modalOverlay){
+
+
+        modalOverlay.classList.remove(
+        "active"
+        );
+
+
+    }
+
+
+
+}
+
+
+
+
+
+
+if(closeModal){
+
+
+    closeModal.onclick =
+    hideModal;
+
+
+}
+
+
+
+
+
+
+if(modalOverlay){
+
+
+
+    modalOverlay.addEventListener(
+    "click",
+    (e)=>{
+
+
+
+        if(
+        e.target === modalOverlay
+        ){
+
+
+            hideModal();
+
+
+        }
+
+
+
+    });
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// ================================
+// CHANGE PASSWORD MODAL
+// ================================
+
+
+
+const passwordButton =
+document.querySelector(
+".primary-action"
+);
+
+
+
+
+
+if(passwordButton){
+
+
+
+passwordButton.addEventListener(
+"click",
+()=>{
+
+
+openModal(`
+
+
+<h2>
+Change Password
+</h2>
+
+
+<p>
+Enter your new password below.
+</p>
+
+
+
+<div class="input-group">
+
+<label>
+New Password
+</label>
+
+<input 
+type="password"
+id="newPassword"
+placeholder="New password">
+
+</div>
+
+
+
+<div class="modal-actions">
+
+
+<button 
+class="modal-cancel"
+onclick="hideModal()">
+
+Cancel
+
+</button>
+
+
+<button 
+class="modal-confirm"
+onclick="changePassword()">
+
+Save
+
+</button>
+
+
+</div>
+
+
+`);
+
+
+
+});
+
+
+
+}
+
+
+
+
+
+
+
+
+function changePassword(){
+
+
+
+const password =
+document.getElementById(
+"newPassword"
+);
+
+
+
+if(password.value.length < 6){
+
+
+showToast(
+"Password must be 6 characters"
+);
+
+
+return;
+
+
+}
+
+
+
+
+localStorage.setItem(
+"password",
+password.value
+);
+
+
+
+hideModal();
+
+
+
+showToast(
+"Password changed"
+);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// make modal functions global
+
+window.hideModal =
+hideModal;
+
+
+window.changePassword =
+changePassword;
+const animationToggle = document.getElementById("animationToggle");
+
+
+// Load saved animation setting
+const animationsEnabled =
+localStorage.getItem("animations") !== "false";
+
+
+if(animationToggle){
+
+    animationToggle.checked = animationsEnabled;
+
+
+    if(!animationsEnabled){
+        document.body.classList.add("no-animation");
+    }
+
+
+    animationToggle.addEventListener("change", ()=>{
+
+
+        if(animationToggle.checked){
+
+
+            localStorage.setItem(
+                "animations",
+                "true"
+            );
+
+
+            document.body.classList.remove(
+                "no-animation"
+            );
+
+
+            showToast(
+                "Animations enabled"
+            );
+
+
+        }else{
+
+
+            localStorage.setItem(
+                "animations",
+                "false"
+            );
+
+
+            document.body.classList.add(
+                "no-animation"
+            );
+
+
+            showToast(
+                "Animations disabled"
+            );
+
+
+        }
+
+
+    });
+
+
+}
+const darkModeToggle =
+document.getElementById("darkModeToggle");
+
+
+// Load saved theme
+
+const darkMode =
+localStorage.getItem("darkMode") !== "false";
+
+
+if(darkModeToggle){
+
+
+    darkModeToggle.checked = darkMode;
+
+
+
+    if(!darkMode){
+
+        document.body.classList.add("light-mode");
+
+    }
+
+
+
+    darkModeToggle.addEventListener("change",()=>{
+
+
+        if(darkModeToggle.checked){
+
+
+            localStorage.setItem(
+                "darkMode",
+                "true"
+            );
+
+
+            document.body.classList.remove(
+                "light-mode"
+            );
+
+
+            showToast(
+                "Dark mode enabled"
+            );
+
+
+
+        }else{
+
+
+            localStorage.setItem(
+                "darkMode",
+                "false"
+            );
+
+
+            document.body.classList.add(
+                "light-mode"
+            );
+
+
+            showToast(
+                "Light mode enabled"
+            );
+
+
+        }
+
+
+    });
+
+
+}
+const glassToggle =
+document.getElementById("glassToggle");
+
+
+// Load saved glass setting
+
+const glassEnabled =
+localStorage.getItem("glassEffect") !== "false";
+
+
+if(glassToggle){
+
+
+    glassToggle.checked = glassEnabled;
+
+
+
+    if(!glassEnabled){
+
+        document.body.classList.add(
+            "no-glass"
+        );
+
+    }
+
+
+
+
+
+    glassToggle.addEventListener("change",()=>{
+
+
+        if(glassToggle.checked){
+
+
+            localStorage.setItem(
+                "glassEffect",
+                "true"
+            );
+
+
+            document.body.classList.remove(
+                "no-glass"
+            );
+
+
+            showToast(
+                "Glass effects enabled"
+            );
+
+
+
+        }else{
+
+
+            localStorage.setItem(
+                "glassEffect",
+                "false"
+            );
+
+
+            document.body.classList.add(
+                "no-glass"
+            );
+
+
+            showToast(
+                "Glass effects disabled"
+            );
+
+
+        }
+
+
+
+    });
+
+
+}
+
+// AUTO SAVE SETTINGS
+
+
+const settingInputs =
+document.querySelectorAll(
+".settings-section input, .settings-section select"
+);
+
+
+
+function saveSettings(){
+
+
+    settingInputs.forEach(input=>{
+
+
+        if(input.type === "checkbox"){
+
+
+            localStorage.setItem(
+                input.id,
+                input.checked
+            );
+
+
+        }
+        else{
+
+
+            localStorage.setItem(
+                input.id,
+                input.value
+            );
+
+
+        }
+
+
+    });
+
+
+
+}
+
+
+
+
+
+function loadSettings(){
+
+
+
+    settingInputs.forEach(input=>{
+
+
+        const saved =
+        localStorage.getItem(input.id);
+
+
+
+        if(saved !== null){
+
+
+            if(input.type === "checkbox"){
+
+
+                input.checked =
+                saved === "true";
+
+
+            }
+            else{
+
+
+                input.value =
+                saved;
+
+
+            }
+
+
+        }
+
+
+
+    });
+
+
+
+}
+
+
+
+
+
+// Save whenever something changes
+
+settingInputs.forEach(input=>{
+
+
+    input.addEventListener(
+    "change",
+    ()=>{
+
+
+        saveSettings();
+
+
+        showToast(
+        "Settings saved"
+        );
+
+
+    });
+
+
+});
+
+
+
+
+
+// Load when page starts
+
+loadSettings();
