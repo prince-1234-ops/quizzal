@@ -1511,3 +1511,27 @@ if(exitSettings){
 
 
 }
+// EXIT SETTINGS BUTTON
+
+const exitSettings = document.getElementById("exitSettings");
+
+if(exitSettings){
+
+    exitSettings.addEventListener("click",()=>{
+
+        let returnPage = localStorage.getItem("settingsReturn");
+
+        if(returnPage){
+
+            window.location.href = returnPage;
+
+        }else{
+
+            window.location.href = "dashboard.html";
+
+        }
+
+    });
+
+}
+
