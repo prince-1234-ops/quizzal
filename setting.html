@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Quizzal Settings</title>
+
+<link rel="stylesheet" href="settings.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+
+<div class="settings-box">
+
+
+<!-- LEFT MENU -->
+
+<div class="settings-menu">
+
+<h1>⚙ Settings</h1>
+
+
+<button class="menu-btn active" onclick="showSection('account')">
+👤 Account
+</button>
+
+
+<button class="menu-btn" onclick="showSection('appearance')">
+🎨 Appearance
+</button>
+
+
+<button class="menu-btn" onclick="showSection('notifications')">
+🔔 Notifications
+</button>
+
+
+<button class="menu-btn" onclick="showSection('privacy')">
+🔒 Privacy
+</button>
+
+
+<button class="menu-btn" onclick="showSection('app')">
+⚙ App
+</button>
+
+
+</div>
+
+
+
+
+
+<!-- RIGHT CONTENT -->
+
+<div class="settings-content">
+
+
+
+<section id="account" class="section">
+
+
+<h2>Account</h2>
+
+
+<div class="profile">
+
+<div class="avatar">
+F
+</div>
+
+
+<div>
+
+<h3 id="displayName">
+Frank
+</h3>
+
+<p>Quizzal Student</p>
+
+</div>
+
+</div>
+
+
+
+<label>
+Username
+</label>
+
+<input id="username" type="text">
+
+
+
+<label>
+Email
+</label>
+
+<input id="email" type="email">
+
+
+
+</section>
+
+
+
+
+
+
+<section id="appearance" class="section hidden">
+
+
+<h2>Appearance</h2>
+
+
+<div class="option">
+
+<span>
+Dark Mode
+</span>
+
+
+<label class="switch">
+
+<input type="checkbox" id="darkMode">
+
+<span class="slider"></span>
+
+</label>
+
+</div>
+
+
+<div class="option">
+
+<span>
+Animations
+</span>
+
+
+<label class="switch">
+
+<input type="checkbox">
+
+<span class="slider"></span>
+
+</label>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section id="notifications" class="section hidden">
+
+
+<h2>Notifications</h2>
+
+
+<div class="option">
+
+<span>
+Quiz reminders
+</span>
+
+
+<label class="switch">
+
+<input type="checkbox">
+
+<span class="slider"></span>
+
+</label>
+
+</div>
+
+
+
+<div class="option">
+
+<span>
+Achievement alerts
+</span>
+
+
+<label class="switch">
+
+<input type="checkbox">
+
+<span class="slider"></span>
+
+</label>
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<section id="privacy" class="section hidden">
+
+
+<h2>Privacy</h2>
+
+
+<div class="option">
+
+<span>
+Show profile to others
+</span>
+
+
+<label class="switch">
+
+<input type="checkbox">
+
+<span class="slider"></span>
+
+</label>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section id="app" class="section hidden">
+
+
+<h2>Application</h2>
+
+
+<button class="danger">
+Reset Progress
+</button>
+
+
+<button class="logout">
+Logout
+</button>
+
+
+<p>
+Quizzal Version 1.0
+</p>
+
+
+</section>
+
+
+
+<button id="saveBtn">
+Save Changes
+</button>
+
+
+
+</div>
+
+
+</div>
+
+
+
+<script src="settings.js"></script>
+
+</body>
+
+</html>
