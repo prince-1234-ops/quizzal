@@ -367,27 +367,54 @@ function nextQuestion(){
         let xp = score * 10;
 
 
-let oldScore = Number(localStorage.getItem("totalScore")) || 0;
+const currentUser = localStorage.getItem("userEmail") || "Guest";
+
+
+// SAVE USER SCORE
+
+let oldScore = Number(
+    localStorage.getItem(currentUser + "_totalScore")
+) || 0;
+
 
 let newScore = oldScore + score;
 
+
 localStorage.setItem(
-    "totalScore",
+    currentUser + "_totalScore",
     newScore
 );
 
 
-addXP(xp);
+
+// SAVE USER XP
+
+let totalXP = Number(
+    localStorage.getItem(currentUser + "_totalXP")
+) || 0;
 
 
-        let completed =
-        Number(localStorage.getItem("completedQuizzes")) || 0;
+totalXP += xp;
 
 
-        localStorage.setItem(
-            "completedQuizzes",
-            completed + 1
-        );
+localStorage.setItem(
+    currentUser + "_totalXP",
+    totalXP
+);
+
+
+
+// SAVE COMPLETED QUIZZES
+
+let completed = Number(
+    localStorage.getItem(currentUser + "_completedQuizzes")
+) || 0;
+
+
+localStorage.setItem(
+    currentUser + "_completedQuizzes",
+    completed + 1
+);
 
 
         alert(
