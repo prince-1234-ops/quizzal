@@ -458,25 +458,34 @@ if(savedEmail){
 <script>
 
 // PROGRESS SYSTEM
+
+const currentUser = localStorage.getItem("userEmail") || "Guest";
+
 let progressXP =
-(Number(localStorage.getItem(currentUser + "_mathXP")) || 0) +
-(Number(localStorage.getItem(currentUser + "_physicsXP")) || 0) +
-(Number(localStorage.getItem(currentUser + "_chemistryXP")) || 0) +
-(Number(localStorage.getItem(currentUser + "_biologyXP")) || 0) +
-(Number(localStorage.getItem(currentUser + "_historyXP")) || 0) +
-(Number(localStorage.getItem(currentUser + "_englishXP")) || 0) +
-(Number(localStorage.getItem(currentUser + "_computerXP")) || 0) +
-(Number(localStorage.getItem(currentUser + "_geographyXP")) || 0) +
-(Number(localStorage.getItem(currentUser + "_totalXP")) || 0);
+(Number(localStorage.getItem("mathXP")) || 0) +
+(Number(localStorage.getItem("physicsXP")) || 0) +
+(Number(localStorage.getItem("chemistryXP")) || 0) +
+(Number(localStorage.getItem("biologyXP")) || 0) +
+(Number(localStorage.getItem("historyXP")) || 0) +
+(Number(localStorage.getItem("englishXP")) || 0) +
+(Number(localStorage.getItem("computerXP")) || 0) +
+(Number(localStorage.getItem("geographyXP")) || 0) +
+(Number(localStorage.getItem("totalXP")) || 0);
+
 
 const TOTAL_QUIZZES = 1032;
 
-let completed =
-Number(localStorage.getItem(currentUser + "_completedQuizzes")) || 0;
 
-let percent = Math.min((completed / TOTAL_QUIZZES) * 100, 100);
-console.log("Completed quizzes:", completed);
-console.log("Progress percent:", percent);
+let completed =
+Number(localStorage.getItem("completedQuizzes")) || 0;
+
+
+let percent = Math.min(
+(completed / TOTAL_QUIZZES) * 100,
+100
+);
+
+
 
 document.getElementById("progressPercent").innerHTML =
 percent.toFixed(1) + "%";
@@ -489,11 +498,14 @@ percent + "%";
 document.getElementById("xpText").innerHTML =
 completed + " / " + TOTAL_QUIZZES + " Quizzes Completed";
 
-const currentUser = localStorage.getItem("userEmail");
 
-let score = localStorage.getItem(currentUser + "_totalScore") || 0;
 
-let xp = localStorage.getItem(currentUser + "_totalXP") || 0;
+let score =
+localStorage.getItem("totalScore") || 0;
+
+
+let xp =
+localStorage.getItem("totalXP") || 0;
 
 
 
@@ -504,17 +516,24 @@ document.getElementById("totalXP").innerHTML = xp;
 document.getElementById("quizCompleted").innerHTML = completed;
 
 
+
 let rank = "Beginner";
 
-if (progressXP >= 500) rank = "Learner";
-if (progressXP >= 1500) rank = "Intermediate";
-if (progressXP >= 3000) rank = "Advanced";
-if (progressXP >= 6000) rank = "Expert";
-if (progressXP >= 12000) rank = "Master";
-if (progressXP >= 20000) rank = "Legend";
+
+if(progressXP >= 500) rank = "Learner";
+if(progressXP >= 1500) rank = "Intermediate";
+if(progressXP >= 3000) rank = "Advanced";
+if(progressXP >= 6000) rank = "Expert";
+if(progressXP >= 12000) rank = "Master";
+if(progressXP >= 20000) rank = "Legend";
+
+
 document.getElementById("rank").innerHTML = rank;
 
+
+
 let circle = document.querySelector(".progress-circle");
+
 
 circle.style.background =
 `
