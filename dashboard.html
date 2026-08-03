@@ -123,7 +123,7 @@ Profile
 
 <li>
 
-<a href="settings.html" onclick="saveSettingsReturn()">
+<a href="settings.html" id="settingsLink">
 <i class="fa-solid fa-gear"></i>
 Settings
 </a>
@@ -728,6 +728,17 @@ function saveSettingsReturn(){
     );
 
 }
+    document.getElementById("settingsLink")
+.addEventListener("click",()=>{
+
+
+    localStorage.setItem(
+        "settingsReturn",
+        "dashboard.html"
+    );
+
+
+});
 </script>
 <div id="achievementPopup" class="achievement-popup">
     🏆 Achievement Unlocked!
