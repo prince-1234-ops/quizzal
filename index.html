@@ -12,12 +12,12 @@
 
     <meta name="author" content="Quizzal">
 
-     <link rel="icon" type="image/png" href="images/ap.png">
+    <link rel="icon" type="image/png" href="images/9.png">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Quizzal | Interactive Learning Platform">
     <meta property="og:description" content="Practice quizzes, earn XP, unlock achievements, and improve your knowledge with Quizzal.">
-    <meta property="og:image" content="https://prince-1234-ops.github.io/quizzal/images/ap.png">
+    <meta property="og:image" content="https://prince-1234-ops.github.io/quizzal/images/9.png">
     <meta property="og:url" content="https://prince-1234-ops.github.io/quizzal/">
     <meta property="og:type" content="website">
 
@@ -25,7 +25,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Quizzal | Interactive Learning Platform">
     <meta name="twitter:description" content="Practice quizzes and track your learning progress with Quizzal.">
-    <meta name="twitter:image" content="https://prince-1234-ops.github.io/quizzal/images/ap.png">
+    <meta name="twitter:image" content="https://prince-1234-ops.github.io/quizzal/images/9.png">
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -37,12 +37,10 @@
       "description":"Interactive learning platform with quizzes for students."
     }
     </script>
-      <link rel="icon" type="image/png" sizes="32x32" href="images/ap.png">
-      <link rel="icon" type="image/png" sizes="192x192" href="images/ap.png">
-      <link rel="apple-touch-icon" href="images/ap.png">
-      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-      <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -58,7 +56,7 @@
 <a href="abaut.html">About</a>
 <a href="contact.html">Contact</a>
 <a href="#" class="active">Login</a>
-<a href="setting.html">setting</a>
+
 </nav>
 
 </header>
@@ -73,13 +71,14 @@
             <form id="loginForm">
             <div class="input-box">
                 <i class='bx bx-envelope'></i>
-                <input type="email" id="email" required>
+
+            <input type="email" id="email" required>
                 <label>Email</label>
             </div>
 
             <div class="input-box">
                 <i class='bx bx-lock'></i>
-                <input type="password" id="password" required>
+                 <input type="password" id="password" required>
                 <label>Password</label>
             </div>
 
@@ -106,19 +105,19 @@
 
             <div class="input-box">
                 <i class='bx bx-user'></i>
-                <input type="text" required>
+                <input type="text" id="registerUsername" required>
                 <label>Username</label>
             </div>
 
             <div class="input-box">
                 <i class='bx bx-envelope'></i>
-                <input type="email" id="email" required>
+                <input type="email" id="registerEmail" required>
                 <label>Email</label>
             </div>
 
             <div class="input-box">
                 <i class='bx bx-lock'></i>
-                <input type="password" required>
+                <input type="password" id="registerPassword" required>
                 <label>Password</label>
             </div>
 
@@ -166,15 +165,140 @@ function login() {
 <script>
 const loginForm = document.getElementById("loginForm");
 
+
 loginForm.addEventListener("submit", function(e){
 
     e.preventDefault();
 
-    const email = document.getElementById("email").value;
 
-    localStorage.setItem("userEmail", email);
-    localStorage.setItem("currentUser", email);
-    window.location.href = "dashboard.html";
+    const email =
+    document.getElementById("email").value;
+
+
+
+    const users =
+    JSON.parse(
+        localStorage.getItem("users")
+    ) || {};
+
+
+
+    if(!users[email]){
+
+        alert("Account not found. Please register.");
+
+        return;
+
+    }
+
+
+
+    localStorage.setItem(
+        "currentUser",
+        email
+    );
+
+
+    window.location.href =
+    "dashboard.html";
+
+
+});
+
+const registerForm =
+document.querySelector(".register form");
+
+
+
+registerForm.addEventListener("submit",function(e){
+
+
+    e.preventDefault();
+
+
+
+    const username =
+    document.getElementById(
+    "registerUsername"
+    ).value;
+
+
+
+    const email =
+    document.getElementById(
+    "registerEmail"
+    ).value;
+
+
+
+    const password =
+    document.getElementById(
+    "registerPassword"
+    ).value;
+
+
+
+    let users =
+    JSON.parse(
+    localStorage.getItem("users")
+    ) || {};
+
+
+
+    if(users[email]){
+
+        alert("Account already exists");
+
+        return;
+
+    }
+
+
+
+    users[email]={
+
+
+        username:username,
+
+        email:email,
+
+        password:password,
+
+        avatar:"",
+
+        totalXP:0,
+
+        totalScore:0,
+
+        completedQuizzes:0,
+
+        streak:0,
+
+        achievements:[],
+
+        settings:{}
+
+    };
+
+
+
+    localStorage.setItem(
+    "users",
+    JSON.stringify(users)
+    );
+
+
+
+    localStorage.setItem(
+    "currentUser",
+    email
+    );
+
+
+
+    window.location.href =
+    "dashboard.html";
+
 
 });
 </script>
