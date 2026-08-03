@@ -148,9 +148,13 @@ Logout
 <div class="avatar">
 
     <i class="fa-solid fa-user default-avatar"></i>
+<div class="default-avatar" id="defaultAvatar">
+    <i class="fa-solid fa-user"></i>
+</div>
 
-    <img id="profileImage"
-    alt="Profile Picture">
+<img id="profileImage"
+src=""
+alt="Profile Picture">
 
     <div class="camera-icon">
         <i class="fa-solid fa-camera"></i>
@@ -558,32 +562,48 @@ if(savedEmail){
 }
 
 const profileImage = document.getElementById("profileImage");
+const defaultAvatar = document.getElementById("defaultAvatar");
 const imageUpload = document.getElementById("imageUpload");
 
-// Open file picker when picture is clicked
-profileImage.onclick = function () {
+
+profileImage.onclick = function(){
     imageUpload.click();
 };
 
-// Load saved image
+
 const savedImage = localStorage.getItem("profileImage");
 
-if (savedImage) {
+
+if(savedImage){
+
     profileImage.src = savedImage;
+
+    profileImage.style.display="block";
+
+    defaultAvatar.style.display="none";
+
 }
 
-// Save new image
-imageUpload.onchange = function () {
 
-    const file = this.files[0];
 
-    if (!file) return;
+imageUpload.onchange = function(){
 
-    const reader = new FileReader();
+    const file=this.files[0];
 
-    reader.onload = function (e) {
+    if(!file) return;
 
-        profileImage.src = e.target.result;
+
+    const reader=new FileReader();
+
+
+    reader.onload=function(e){
+
+        profileImage.src=e.target.result;
+
+        profileImage.style.display="block";
+
+        defaultAvatar.style.display="none";
+
 
         localStorage.setItem(
             "profileImage",
@@ -592,9 +612,11 @@ imageUpload.onchange = function () {
 
     };
 
+
     reader.readAsDataURL(file);
 
 };
+
 </script>
 <script>
 
