@@ -459,20 +459,20 @@ if(savedEmail){
 
 // PROGRESS SYSTEM
 let progressXP =
-(Number(localStorage.getItem("mathXP")) || 0) +
-(Number(localStorage.getItem("physicsXP")) || 0) +
-(Number(localStorage.getItem("chemistryXP")) || 0) +
-(Number(localStorage.getItem("biologyXP")) || 0) +
-(Number(localStorage.getItem("historyXP")) || 0) +
-(Number(localStorage.getItem("englishXP")) || 0) +
-(Number(localStorage.getItem("computerXP")) || 0) +
-(Number(localStorage.getItem("geographyXP")) || 0) +
-(Number(localStorage.getItem("totalXP")) || 0);
+(Number(localStorage.getItem(currentUser + "_mathXP")) || 0) +
+(Number(localStorage.getItem(currentUser + "_physicsXP")) || 0) +
+(Number(localStorage.getItem(currentUser + "_chemistryXP")) || 0) +
+(Number(localStorage.getItem(currentUser + "_biologyXP")) || 0) +
+(Number(localStorage.getItem(currentUser + "_historyXP")) || 0) +
+(Number(localStorage.getItem(currentUser + "_englishXP")) || 0) +
+(Number(localStorage.getItem(currentUser + "_computerXP")) || 0) +
+(Number(localStorage.getItem(currentUser + "_geographyXP")) || 0) +
+(Number(localStorage.getItem(currentUser + "_totalXP")) || 0);
 
 const TOTAL_QUIZZES = 1032;
 
 let completed =
-Number(localStorage.getItem("completedQuizzes")) || 0;
+Number(localStorage.getItem(currentUser + "_completedQuizzes")) || 0;
 
 let percent = Math.min((completed / TOTAL_QUIZZES) * 100, 100);
 console.log("Completed quizzes:", completed);
@@ -489,9 +489,11 @@ percent + "%";
 document.getElementById("xpText").innerHTML =
 completed + " / " + TOTAL_QUIZZES + " Quizzes Completed";
 
-let score = localStorage.getItem("totalScore") || 0;
+const currentUser = localStorage.getItem("userEmail");
 
-let xp = localStorage.getItem("totalXP") || 0;
+let score = localStorage.getItem(currentUser + "_totalScore") || 0;
+
+let xp = localStorage.getItem(currentUser + "_totalXP") || 0;
 
 
 
