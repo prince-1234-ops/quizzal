@@ -440,45 +440,65 @@ body{
     }
 
 }
-
-
-
-
 .avatar{
 
     width:170px;
-
     height:170px;
 
     margin:auto;
 
-
     padding:6px;
-
 
     border-radius:50%;
 
-
     background:
-
     linear-gradient(
-    135deg,
-    #ffffff,
-    #00eaff,
-    #0066ff
+        135deg,
+        white,
+        #00eaff,
+        #0066ff
     );
 
-
-    box-shadow:
-
-    0 0 40px rgba(0,234,255,.6),
-
-    inset 0 0 30px rgba(255,255,255,.5);
-
+    position:relative;
 
 }
 
 
+.default-avatar{
+
+    width:100%;
+    height:100%;
+
+    border-radius:50%;
+
+    background:#050816;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#00eaff;
+
+    font-size:75px;
+
+}
+
+
+#profileImage{
+
+    width:100%;
+
+    height:100%;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    display:none;
+
+}
 
 @keyframes floatAvatar{
 
@@ -500,23 +520,20 @@ body{
 
 
 
+
 .avatar img{
 
     width:100%;
 
     height:100%;
 
-
     object-fit:cover;
-
 
     border-radius:50%;
 
-
-    border:5px solid #050816;
+    border:3px solid rgba(255,255,255,.15);
 
 }
-
 
 
 
@@ -526,9 +543,9 @@ body{
     position:absolute;
 
 
-    right:5px;
+    right:8px;
 
-    bottom:5px;
+    bottom:8px;
 
 
     width:40px;
