@@ -1413,3 +1413,101 @@ settingInputs.forEach(input=>{
 // Load when page starts
 
 loadSettings();
+// =======================================
+// DASHBOARD + PROFILE CONNECTION
+// =======================================
+
+
+// Load dashboard data into settings
+
+
+function loadDashboardData(){
+
+
+    const xp =
+    localStorage.getItem("totalXP") || 0;
+
+
+    const score =
+    localStorage.getItem("totalScore") || 0;
+
+
+    const quizzes =
+    localStorage.getItem("completedQuizzes") || 0;
+
+
+    const streak =
+    localStorage.getItem("streak") || 0;
+
+
+
+    const xpText =
+    document.getElementById("settingsXP");
+
+
+    const streakText =
+    document.getElementById("settingsStreak");
+
+
+    const quizText =
+    document.getElementById("settingsQuizzes");
+
+
+
+
+    if(xpText)
+    xpText.textContent = xp;
+
+
+
+    if(streakText)
+    streakText.textContent = streak;
+
+
+
+    if(quizText)
+    quizText.textContent = quizzes;
+
+
+
+}
+
+
+
+
+
+loadDashboardData();
+
+
+const exitSettings =
+document.getElementById("exitSettings");
+
+
+if(exitSettings){
+
+
+    exitSettings.addEventListener("click",()=>{
+
+
+        const returnPage =
+        localStorage.getItem("settingsReturn");
+
+
+        if(returnPage){
+
+            window.location.href =
+            returnPage;
+
+        }
+        else{
+
+            window.location.href =
+            "dashboard.html";
+
+        }
+
+
+    });
+
+
+}
