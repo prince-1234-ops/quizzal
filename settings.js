@@ -1293,7 +1293,7 @@ if(glassToggle){
 
 const settingInputs =
 document.querySelectorAll(
-".settings-section input, .settings-section select"
+".settings-section input:not([type='file']), .settings-section select"
 );
 
 
