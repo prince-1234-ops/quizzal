@@ -2137,23 +2137,21 @@ body{
 
 
 
+
+
 .settings-sidebar{
 
     position:fixed;
 
-    left:-320px;
+    left:-300px;
 
-    top:0;
+    top:20px;
 
-    bottom:0;
+    height:calc(100vh - 40px);
 
-    height:100vh;
+    width:260px;
 
-    z-index:999;
-
-    transition:.4s;
-
-    background:#050816;
+    border-radius:25px;
 
 }
 
@@ -2328,22 +2326,18 @@ body{
 
 /* MOBILE PHONES */
 
+
 @media(max-width:600px){
-
-
 
 .settings-app{
 
     width:100%;
-
     margin:0;
-
     border-radius:0;
-
     min-height:100vh;
 
+    background:transparent;
 }
-
 
 
 .settings-content{
@@ -2951,5 +2945,17 @@ to{
 .no-glass .stat-card:hover{
 
     transform:none;
+
+}
+/* MOBILE BACKGROUND FIX */
+
+@media(max-width:600px){
+
+body{
+
+    background:
+    radial-gradient(circle at top,#123b70,#050816 65%);
+
+}
 
 }
