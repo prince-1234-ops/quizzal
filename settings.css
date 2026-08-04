@@ -16,7 +16,7 @@
 
     --dark-light:#0b1026;
 
-    --glass:rgba(255,255,255,0.08);
+--glass:rgba(255,255,255,0.12);
 
     --glass-hover:rgba(255,255,255,0.12);
 
@@ -65,29 +65,24 @@ html{
 }
 
 
-
 body{
 
     min-height:100vh;
 
     background:
-
-    radial-gradient(
-    circle at top,
-    #101b44,
-    var(--dark)
+    radial-gradient(circle at 20% 20%, rgba(0,234,255,.25), transparent 30%),
+    radial-gradient(circle at 80% 30%, rgba(0,102,255,.25), transparent 35%),
+    linear-gradient(
+        135deg,
+        #050816,
+        #0b1026
     );
 
-
-    color:var(--text);
+    color:white;
 
     overflow-x:hidden;
 
 }
-
-
-
-
 
 
 
@@ -259,16 +254,15 @@ body{
 
     border-right:1px solid rgba(255,255,255,.15);
 
-    background:
-    linear-gradient(
-        145deg,
-        rgba(255,255,255,.14),
-        rgba(255,255,255,.04)
-    );
+background:
+linear-gradient(
+145deg,
+rgba(255,255,255,.20),
+rgba(255,255,255,.06)
+);
 
-    backdrop-filter:blur(35px);
-
-    -webkit-backdrop-filter:blur(35px);
+backdrop-filter:blur(45px);
+-webkit-backdrop-filter:blur(45px);
 
     border-radius:25px;
 
@@ -283,8 +277,38 @@ body{
 }
 
 
+.settings-sidebar::before{
 
+content:"";
 
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:
+linear-gradient(
+120deg,
+rgba(255,255,255,.25),
+transparent 40%
+);
+
+pointer-events:none;
+
+opacity:.4;
+
+}
+
+.settings-sidebar{
+
+position:relative;
+
+overflow:hidden;
+
+}
 
 
 .settings-logo{
@@ -391,8 +415,7 @@ body{
 
     margin-bottom:8px;
 
-    background:transparent;
-
+background:rgba(255,255,255,.04);
     border:none;
 
     color:#aaa;
