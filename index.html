@@ -174,7 +174,8 @@ loginForm.addEventListener("submit", function(e){
     const email =
     document.getElementById("email").value;
 
-
+const password =
+document.getElementById("password").value;
 
     const users =
     JSON.parse(
@@ -183,13 +184,22 @@ loginForm.addEventListener("submit", function(e){
 
 
 
-    if(!users[email]){
+if(!users[email]){
 
-        alert("Account not found. Please register.");
+    alert("Account not found. Please register.");
 
-        return;
+    return;
 
-    }
+}
+
+
+if(users[email].password !== password){
+
+    alert("Wrong password.");
+
+    return;
+
+}
 
 
 
