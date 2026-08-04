@@ -434,7 +434,7 @@ overlay.classList.remove("active");
 
 const username = document.getElementById("username");
 
-const savedEmail = localStorage.getItem("userEmail");
+const savedEmail = localStorage.getItem("currentUser");
 
 
 if(savedEmail){
@@ -459,7 +459,7 @@ if(savedEmail){
 
 // PROGRESS SYSTEM
 
-const currentUser = localStorage.getItem("userEmail") || "Guest";
+const currentUser = localStorage.getItem("currentUser") || "Guest";
 
 let progressXP =
 Number(localStorage.getItem(currentUser + "_totalXP")) || 0;
