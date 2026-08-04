@@ -2136,33 +2136,37 @@ body{
 }
 
 
-
-
-
 .settings-sidebar{
 
     position:fixed;
 
-    left:-300px;
+    left:-320px;
 
     top:20px;
 
+    bottom:auto;
+
     height:calc(100vh - 40px);
 
-    width:260px;
+    z-index:999;
+
+    transition:.4s;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(25px);
+
+    border:1px solid rgba(255,255,255,.15);
 
     border-radius:25px;
 
 }
 
-
-
 .settings-sidebar.open{
 
-    left:0;
+    left:20px;
 
 }
-
 
 
 .settings-main{
@@ -2331,10 +2335,13 @@ body{
 
 .settings-app{
 
-    width:100%;
-    margin:0;
-    border-radius:0;
-    min-height:100vh;
+   width:100%;
+
+    margin:20px;
+
+    border-radius:25px;
+
+    min-height:calc(100vh - 40px);
 
     background:transparent;
 }
@@ -2841,7 +2848,7 @@ button:active{
 @media(max-width:850px){
 
 
-.settings-sidebar::after{
+.settings-sidebar.open::after{
 
     content:"";
 
