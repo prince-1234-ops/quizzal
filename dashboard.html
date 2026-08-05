@@ -468,15 +468,20 @@ if(savedEmail){
 
 const currentUser = localStorage.getItem("currentUser") || "Guest";
 
+const users =
+JSON.parse(localStorage.getItem("users")) || {};
+
+const user =
+users[currentUser] || {};
+
 let progressXP =
-Number(localStorage.getItem(currentUser + "_totalXP")) || 0;
+user.totalXP || 0;
 
 
 const TOTAL_QUIZZES = 1032;
 
-
 let completed =
-Number(localStorage.getItem(currentUser + "_completedQuizzes")) || 0;
+user.completedQuizzes || 0;
 
 
 let percent = Math.min(
@@ -500,11 +505,10 @@ completed + " / " + TOTAL_QUIZZES + " Quizzes Completed";
 
 
 let score =
-localStorage.getItem(currentUser + "_totalScore") || 0;
-
+user.totalScore || 0;
 
 let xp =
-localStorage.getItem(currentUser + "_totalXP") || 0;
+user.totalXP || 0;
 
 
 
