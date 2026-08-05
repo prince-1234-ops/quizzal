@@ -1,316 +1,1110 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Quizzal | Interactive Learning Platform for Students</title>
+<meta charset="UTF-8">
 
-    <meta name="description" content="Quizzal is an interactive learning platform where students can practice quizzes in Mathematics, Biology, Chemistry, Physics, English, Geography, History and Computer Science while tracking their progress.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="keywords" content="Quizzal, quizzes, education, mathematics, biology, chemistry, physics, geography, history, English, computer science, online learning">
 
-    <meta name="author" content="Quizzal">
+<title>
+Quizzal | Learn, Practice, Improve
+</title>
 
-   <link rel="icon" type="image/png" href="images/ap.png">
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Quizzal | Interactive Learning Platform">
-    <meta property="og:description" content="Practice quizzes, earn XP, unlock achievements, and improve your knowledge with Quizzal.">
-    <meta property="og:image" content="https://prince-1234-ops.github.io/quizzal/images/ap.png">
-    <meta property="og:url" content="https://prince-1234-ops.github.io/quizzal/">
-    <meta property="og:type" content="website">
+<meta name="description"
+content="Quizzal is an interactive learning platform where students practice quizzes, earn XP and track progress.">
 
-    <!-- Twitter/X -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Quizzal | Interactive Learning Platform">
-    <meta name="twitter:description" content="Practice quizzes and track your learning progress with Quizzal.">
-    <meta name="twitter:image" content="https://prince-1234-ops.github.io/quizzal/images/9.png">
 
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context":"https://schema.org",
-      "@type":"WebSite",
-      "name":"Quizzal",
-      "url":"https://prince-1234-ops.github.io/quizzal/",
-      "description":"Interactive learning platform with quizzes for students."
-    }
-    </script>
+<meta name="keywords"
+content="Quizzal, quizzes, education, learning, students">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+<meta name="author"
+content="Quizzal">
 
-    <link rel="stylesheet" href="style.css">
+
+<link rel="icon"
+type="image/png"
+href="images/ap.png">
+
+
+<!-- Google Font -->
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+
+<!-- Icons -->
+
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+rel="stylesheet">
+
+
+
+<!-- CSS -->
+
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/style.css">
+
+
+
 </head>
+
+
+
 <body>
 
-<header>
 
-<a href="#" class="logo">Quizzal</a>
-
-<nav>
-
-<a href="login.html">Home</a>
-<a href="abaut.html">About</a>
-<a href="contact.html">Contact</a>
-<a href="#" class="active">Login</a>
-
-</nav>
-
-</header>
-
-<section class="hero">
-
-<div class="container">
-
-    <div class="form-box login">
-        <h1>Login</h1>
-
-            <form id="loginForm">
-            <div class="input-box">
-                <i class='bx bx-envelope'></i>
-
-            <input type="email" id="email" required>
-                <label>Email</label>
-            </div>
-
-            <div class="input-box">
-                <i class='bx bx-lock'></i>
-                 <input type="password" id="password" required>
-                <label>Password</label>
-            </div>
-
- 
-              <button type="submit">Login</button>
+<!-- ==========================
+     LOADING SCREEN
+=========================== -->
 
 
-               
-
-            <p class="switch">
-                Don't have an account?
-                <a onclick="register()">Register</a>
-            </p>
-
-        </form>
-    </div>
+<div class="loader">
 
 
-    <div class="form-box register">
+<div class="loader-logo">
 
-        <h1>Register</h1>
-
-        <form>
-
-            <div class="input-box">
-                <i class='bx bx-user'></i>
-                <input type="text" id="registerUsername" required>
-                <label>Username</label>
-            </div>
-
-            <div class="input-box">
-                <i class='bx bx-envelope'></i>
-                <input type="email" id="registerEmail" required>
-                <label>Email</label>
-            </div>
-
-            <div class="input-box">
-                <i class='bx bx-lock'></i>
-                <input type="password" id="registerPassword" required>
-                <label>Password</label>
-            </div>
-
-            <button>Create Account</button>
-
-            <p class="switch">
-                Already have an account?
-                <a onclick="login()">Login</a>
-            </p>
-
-        </form>
-
-    </div>
-
-
-    <div class="info-panel">
-
-        <h2>Welcome to Quizzal</h2>
-
-        <p>
-            Test your knowledge.
-            Learn. Compete. Improve.
-        </p>
-
-    </div>
+<img src="images/ap.png"
+alt="Quizzal">
 
 </div>
-</section>
+
+
+<div class="loader-text">
+
+Loading Quizzal...
+
+</div>
+
+
+<div class="loader-bar">
+
+<span></span>
+
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- ==========================
+     BACKGROUND EFFECTS
+=========================== -->
+
+
+<div class="background">
+
+
+<div class="gradient-circle circle-one"></div>
+
+
+<div class="gradient-circle circle-two"></div>
+
+
+<div class="gradient-circle circle-three"></div>
+
+
+</div>
+
+
+
+
+
 <canvas id="particles"></canvas>
+
+
+
+
 
 <div class="mouse-glow"></div>
 
-<script>
-const container = document.querySelector(".container");
 
-function register() {
-    container.classList.add("active");
-}
 
-function login() {
-    container.classList.remove("active");
-}
-</script>
 
-<script>
-const loginForm = document.getElementById("loginForm");
 
+<!-- ==========================
+     HEADER
+=========================== -->
 
-loginForm.addEventListener("submit", function(e){
 
-    e.preventDefault();
+<header class="header">
 
 
-    const email =
-    document.getElementById("email").value;
+<a href="index.html"
+class="logo">
 
-const password =
-document.getElementById("password").value;
 
-    const users =
-    JSON.parse(
-        localStorage.getItem("users")
-    ) || {};
+<img src="images/ap.png"
+alt="Quizzal logo">
 
 
+<span>
+Quizzal
+</span>
 
-if(!users[email]){
 
-    alert("Account not found. Please register.");
+</a>
 
-    return;
 
-}
 
 
-if(users[email].password !== password){
 
-    alert("Wrong password.");
+<nav class="navigation">
 
-    return;
 
-}
+<a href="index.html"
+class="active">
+Home
+</a>
 
 
+<a href="about.html">
+About
+</a>
 
-    localStorage.setItem(
-        "currentUser",
-        email
-    );
 
+<a href="contact.html">
+Contact
+</a>
 
-    window.location.href =
-    "dashboard.html";
 
 
-});
+</nav>
 
-const registerForm =
-document.querySelector(".register form");
 
 
+</header>
 
-registerForm.addEventListener("submit",function(e){
 
 
-    e.preventDefault();
 
 
+<!-- ==========================
+     MAIN AUTH SECTION
+=========================== -->
 
-    const username =
-    document.getElementById(
-    "registerUsername"
-    ).value;
 
+<main class="auth-section">
 
 
-    const email =
-    document.getElementById(
-    "registerEmail"
-    ).value;
 
+<div class="auth-wrapper">
 
 
-    const password =
-    document.getElementById(
-    "registerPassword"
-    ).value;
 
+<!-- LEFT INFORMATION SIDE -->
 
 
-    let users =
-    JSON.parse(
-    localStorage.getItem("users")
-    ) || {};
+<section class="intro-panel">
 
 
 
-    if(users[email]){
+<div class="intro-content">
 
-        alert("Account already exists");
 
-        return;
 
-    }
+<h1>
 
+Welcome to
 
+<span>
+Quizzal
+</span>
 
-    users[email]={
+</h1>
 
 
-        username:username,
 
-        email:email,
 
-        password:password,
+<h2>
 
-        avatar:"",
+Your Smart Learning Journey
 
-        totalXP:0,
+</h2>
 
-        totalScore:0,
 
-        completedQuizzes:0,
 
-        streak:0,
 
-        achievements:[],
+<p>
 
-        settings:{}
+Practice quizzes, earn XP,
+unlock achievements and improve
+your knowledge every day.
 
-    };
+</p>
 
 
 
-    localStorage.setItem(
-    "users",
-    JSON.stringify(users)
-    );
 
+<div class="features">
 
 
-    localStorage.setItem(
-    "currentUser",
-    email
-    );
 
+<div class="feature-card">
 
+<i class='bx bx-brain'></i>
 
-    window.location.href =
-    "dashboard.html";
+<h3>
+Learn
+</h3>
 
+<p>
+Improve your skills.
+</p>
 
-});
-</script>
+</div>
+
+
+
+
+
+<div class="feature-card">
+
+<i class='bx bx-trophy'></i>
+
+<h3>
+Compete
+</h3>
+
+<p>
+Climb the leaderboard.
+</p>
+
+</div>
+
+
+
+
+
+<div class="feature-card">
+
+<i class='bx bx-bar-chart'></i>
+
+<h3>
+Progress
+</h3>
+
+<p>
+Track your growth.
+</p>
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+<section class="form-panel">
+
+
+<!-- LOGIN FORM -->
+
+
+<form id="loginForm"
+class="auth-form login-form">
+
+
+
+<h2>
+Welcome Back
+</h2>
+
+
+<p class="form-description">
+
+Login to continue your learning journey.
+
+</p>
+
+
+
+
+
+<div class="input-box">
+
+
+<i class='bx bx-envelope'></i>
+
+
+<input 
+type="email"
+id="email"
+required>
+
+
+<label>
+Email Address
+</label>
+
+
+</div>
+
+
+
+
+
+
+<div class="input-box">
+
+
+<i class='bx bx-lock'></i>
+
+
+<input 
+type="password"
+id="password"
+required>
+
+
+
+<label>
+Password
+</label>
+
+
+
+<i class='bx bx-show password-toggle'></i>
+
+
+</div>
+
+
+
+
+
+<div class="form-options">
+
+
+<label class="remember">
+
+
+<input 
+type="checkbox"
+id="remember">
+
+
+<span></span>
+
+
+Remember me
+
+
+</label>
+
+
+
+
+<a href="#"
+class="forgot">
+
+Forgot password?
+
+</a>
+
+
+
+</div>
+
+
+
+
+
+
+
+<button 
+type="submit"
+class="auth-button">
+
+
+<span>
+Login
+</span>
+
+
+<i class='bx bx-right-arrow-alt'></i>
+
+
+</button>
+
+
+
+
+
+
+<div class="divider">
+
+
+<span></span>
+
+
+<p>
+OR
+</p>
+
+
+<span></span>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="social-login">
+
+
+<button 
+type="button"
+class="social-btn">
+
+
+<i class='bx bxl-google'></i>
+
+Google
+
+</button>
+
+
+
+<button 
+type="button"
+class="social-btn">
+
+
+<i class='bx bxl-facebook'></i>
+
+Facebook
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+<p class="switch-text">
+
+
+Don't have an account?
+
+
+<a id="showRegister">
+
+Create Account
+
+</a>
+
+
+</p>
+
+
+
+</form>
+
+
+
+
+
+
+
+
+
+<!-- REGISTER FORM -->
+
+
+
+<form id="registerForm"
+class="auth-form register-form">
+
+
+
+<h2>
+Create Account
+</h2>
+
+
+
+<p class="form-description">
+
+Start your learning adventure today.
+
+</p>
+
+
+
+
+
+
+<div class="input-box">
+
+
+<i class='bx bx-user'></i>
+
+
+<input
+type="text"
+id="registerUsername"
+required>
+
+
+
+<label>
+Username
+</label>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="input-box">
+
+
+<i class='bx bx-envelope'></i>
+
+
+<input
+type="email"
+id="registerEmail"
+required>
+
+
+
+<label>
+Email Address
+</label>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="input-box">
+
+
+<i class='bx bx-lock'></i>
+
+
+<input
+type="password"
+id="registerPassword"
+required>
+
+
+<label>
+Password
+</label>
+
+
+<i class='bx bx-show password-toggle'></i>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="password-strength">
+
+
+<div></div>
+
+
+<div></div>
+
+
+<div></div>
+
+
+<div></div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<button
+type="submit"
+class="auth-button">
+
+
+<span>
+Create Account
+</span>
+
+
+<i class='bx bx-user-plus'></i>
+
+
+</button>
+
+
+
+
+
+
+
+<div class="divider">
+
+
+<span></span>
+
+
+<p>
+OR
+</p>
+
+
+<span></span>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="social-login">
+
+
+<button 
+type="button"
+class="social-btn">
+
+
+<i class='bx bxl-google'></i>
+
+
+Google
+
+
+</button>
+
+
+
+
+
+<button 
+type="button"
+class="social-btn">
+
+
+<i class='bx bxl-facebook'></i>
+
+
+Facebook
+
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+<p class="switch-text">
+
+
+Already have an account?
+
+
+<a id="showLogin">
+
+Login
+
+</a>
+
+
+</p>
+
+
+
+
+
+</form>
+
+
+
+</section>
+
+
+
+
+
+</div>
+
+
+</main>
+
+<!-- ==========================
+     TOAST NOTIFICATION SYSTEM
+=========================== -->
+
+
+<div class="toast-container"
+id="toastContainer">
+
+
+<div class="toast">
+
+
+<i class='bx bx-check-circle'></i>
+
+
+<div class="toast-message">
+
+Success message
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- ==========================
+     LOADING OVERLAY
+=========================== -->
+
+
+<div class="loading-overlay"
+id="loadingOverlay">
+
+
+<div class="loading-box">
+
+
+<div class="spinner"></div>
+
+
+<h3>
+Please wait...
+</h3>
+
+
+<p>
+Processing your request
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- ==========================
+     PASSWORD RESET MODAL
+=========================== -->
+
+
+
+<div class="modal"
+id="resetModal">
+
+
+<div class="modal-content">
+
+
+
+<button 
+class="close-modal"
+id="closeModal">
+
+
+<i class='bx bx-x'></i>
+
+
+</button>
+
+
+
+
+
+<h2>
+Reset Password
+</h2>
+
+
+
+<p>
+
+Enter your email address
+to reset your password.
+
+</p>
+
+
+
+
+
+<div class="input-box">
+
+
+<i class='bx bx-envelope'></i>
+
+
+<input 
+type="email"
+id="resetEmail">
+
+
+<label>
+Email Address
+</label>
+
+
+
+</div>
+
+
+
+
+
+
+
+<button
+class="auth-button"
+id="resetButton">
+
+
+Reset Password
+
+
+</button>
+
+
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- ==========================
+     FOOTER
+=========================== -->
+
+
+
+<footer class="footer">
+
+
+
+<div class="footer-content">
+
+
+
+<div class="footer-logo">
+
+
+<img src="images/ap.png"
+alt="Quizzal">
+
+
+<h2>
+Quizzal
+</h2>
+
+
+</div>
+
+
+
+
+
+<p>
+
+Learn. Practice. Improve.
+
+</p>
+
+
+
+
+
+
+<div class="footer-links">
+
+
+<a href="about.html">
+
+About
+
+</a>
+
+
+
+<a href="contact.html">
+
+Contact
+
+</a>
+
+
+
+<a href="#">
+
+Privacy
+
+</a>
+
+
+
+<a href="#">
+
+Terms
+
+</a>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="social-icons">
+
+
+<a href="#">
+
+<i class='bx bxl-facebook'></i>
+
+</a>
+
+
+
+<a href="#">
+
+<i class='bx bxl-instagram'></i>
+
+</a>
+
+
+
+<a href="#">
+
+<i class='bx bxl-twitter'></i>
+
+</a>
+
+
+
+<a href="#">
+
+<i class='bx bxl-youtube'></i>
+
+</a>
+
+
+
+</div>
+
+
+
+
+
+
+<p class="copyright">
+
+© 2026 Quizzal. All rights reserved.
+
+</p>
+
+
+
+
+
+</div>
+
+
+</footer>
+
+<script src="index.js"></script>
+
 </body>
+
 </html>
