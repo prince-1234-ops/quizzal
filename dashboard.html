@@ -431,7 +431,6 @@ overlay.classList.remove("active");
 
 
 // Load user
-
 const username = document.getElementById("username");
 
 const savedEmail = localStorage.getItem("currentUser");
@@ -439,17 +438,25 @@ const savedEmail = localStorage.getItem("currentUser");
 
 if(savedEmail){
 
-    // remove @gmail.com part
-    let name = savedEmail.split("@")[0];
+    const users =
+    JSON.parse(localStorage.getItem("users")) || {};
 
-    username.textContent = name;
+    if(users[savedEmail]){
+
+        username.textContent =
+        users[savedEmail].username;
+
+    }else{
+
+        username.textContent = "Guest";
+
+    }
 
 }else{
 
     username.textContent = "Guest";
 
 }
-
 
 
 </script>
