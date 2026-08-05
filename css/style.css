@@ -1799,3 +1799,75 @@ color:white;
 color:rgba(255,255,255,.75);
 
 }
+/* Premium form card */
+
+.form-panel{
+
+background:
+rgba(255,255,255,0.10);
+
+border:
+
+1px solid rgba(255,255,255,0.2);
+
+box-shadow:
+
+0 25px 60px rgba(0,0,0,.45);
+
+}
+
+
+
+.form-panel::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+linear-gradient(
+135deg,
+rgba(0,234,255,.15),
+transparent
+);
+
+pointer-events:none;
+
+}
+
+
+
+.auth-form{
+
+position:relative;
+
+z-index:2;
+
+}
+
+
+
+/* Better button */
+
+.auth-button{
+
+background:
+
+linear-gradient(
+135deg,
+#00eaff,
+#0066ff
+);
+
+}
+
+
+
+.auth-button span{
+
+color:white;
+
+}
